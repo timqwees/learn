@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<script
+	type="module">const n = document.querySelector(".share-button"); n?.addEventListener("click", () => { const t = window.location.href, e = { title: document.title, url: t }; navigator.share(e) });</script>
+<html lang="ru" class="scroll-smooth scroll-pt-16">
+
+<head>
+	<script src="../themetoggle.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+	<meta name="description"
+		content="Сайт по веб-технологиям, созданный для учеников Московского Политехнического Университета.">
+	<script defer src="https://cloud.umami.is/script.js"
+		data-website-id="b6ab8e19-a315-491e-931e-41ec87b0957f"></script>
+	<title>Поток и блоки</title>
+	<link rel="stylesheet" href="../_astro/index.Csm0ttLF.css">
+	<style>
+		.section-heading[data-astro-cid-u4qoyrkz] {
+			position: relative;
+			overflow: hidden;
+			z-index: 1
+		}
+
+		.section-heading[data-astro-cid-u4qoyrkz]:before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-bg-accent-first);
+			-webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-size: cover;
+			mask-size: cover
+		}
+
+		html.dark .astro-code,
+		html.dark .astro-code span {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			color: var(--shiki-dark) !important;
+			background-color: var(--color-bg-code) !important
+		}
+
+		html.light .astro-code,
+		html.light .astro-code span {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			color: var(--shiki-light) !important;
+			background-color: var(--color-bg-code) !important
+		}
+
+		.md[data-astro-cid-gjtny2mx]>pre {
+			margin-bottom: 20px;
+			padding: 20px;
+			border-radius: 15px
+		}
+
+		.md[data-astro-cid-gjtny2mx] code {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			font-family: JetBrainsMono !important
+		}
+
+		.md[data-astro-cid-gjtny2mx] {
+			color: var(--color-text-inverted)
+		}
+
+		.md[data-astro-cid-gjtny2mx] h1 {
+			display: none
+		}
+
+		.md[data-astro-cid-gjtny2mx] em:first-of-type {
+			display: none
+		}
+
+		.md[data-astro-cid-gjtny2mx] h2,
+		h3 {
+			margin-bottom: 20px;
+			text-wrap: balance;
+			line-height: 1.1
+		}
+
+		.md[data-astro-cid-gjtny2mx] h2,
+		h3 {
+			margin-top: 40px
+		}
+
+		.md[data-astro-cid-gjtny2mx] :is(h2, h3):first-child {
+			margin-top: 0
+		}
+
+		.md[data-astro-cid-gjtny2mx] h2 {
+			font-size: 40px
+		}
+
+		.md[data-astro-cid-gjtny2mx] h3 {
+			font-size: 28px
+		}
+
+		@media (max-width: 1200px) {
+			.md[data-astro-cid-gjtny2mx] h3 {
+				font-size: 24px
+			}
+		}
+
+		@media (max-width: 768px) {
+			.md[data-astro-cid-gjtny2mx] h2 {
+				font-size: 28px
+			}
+
+			.md[data-astro-cid-gjtny2mx] h3 {
+				font-size: 24px
+			}
+		}
+
+		.md[data-astro-cid-gjtny2mx] p {
+			margin-bottom: 20px;
+			line-height: 1.2
+		}
+
+		.md[data-astro-cid-gjtny2mx] code:not(pre code) {
+			color: var(--color-bg-accent-second)
+		}
+
+		.md[data-astro-cid-gjtny2mx] ul,
+		ol {
+			margin-bottom: 20px;
+			padding-left: 40px
+		}
+
+		.md[data-astro-cid-gjtny2mx] ul {
+			list-style-type: disc
+		}
+
+		.md[data-astro-cid-gjtny2mx] ol {
+			list-style-type: decimal-leading-zero
+		}
+
+		.md[data-astro-cid-gjtny2mx] li {
+			margin-bottom: 10px;
+			font-size: 20px;
+			line-height: 1.2
+		}
+
+		@media (max-width: 1200px) {
+			.md[data-astro-cid-gjtny2mx] li {
+				font-size: 18px
+			}
+		}
+
+		@media (max-width: 768px) {
+			.md[data-astro-cid-gjtny2mx] li {
+				font-size: 16px
+			}
+		}
+
+		.md[data-astro-cid-gjtny2mx] a,
+		.md[data-astro-cid-gjtny2mx] code {
+			word-wrap: break-word
+		}
+
+		.md[data-astro-cid-gjtny2mx] a {
+			color: var(--color-text-tertiary);
+			text-decoration: underline
+		}
+
+		.md[data-astro-cid-gjtny2mx] img {
+			margin: 20px 0;
+			border-radius: 10px
+		}
+
+		.md[data-astro-cid-gjtny2mx] pre {
+			margin: 20px 0;
+			padding: 12px 0 12px 12px;
+			border-radius: 10px
+		}
+
+		.md[data-astro-cid-gjtny2mx] hr {
+			margin: 20px 0
+		}
+
+		.md[data-astro-cid-gjtny2mx]>*:last-child {
+			margin-bottom: 0
+		}
+	</style>
+	<link rel="stylesheet" href="../_astro/index.Cj0cvOTk.css">
+</head>
+
+<body class="flex flex-col min-h-screen transition bg-bg-screen text-text-primary font-texts">
+	<header class="header-container w-full fixed z-50" data-astro-cid-3ef6ksr2>
+		<div class="header md:bg-bg-menu text-text-primary flex-col gap-2 py-2.5 px-2.5 md:px-10 rounded-2xl box-border md:backdrop-blur-xl"
+			data-astro-cid-3ef6ksr2>
+			<div class="header-content-vertical w-full justify-between items-center mx-auto max-w-screen-xl flex"
+				data-astro-cid-3ef6ksr2> <a class="userActionsLink hidden md:block" onclick="window.location.href='/'"
+					href='/' data-astro-cid-3ef6ksr2> <img class="w-10 h-10"
+						src="https://cdn4.iconfinder.com/data/icons/finite-editor/16/code-1024.png" alt="logo"
+						data-astro-cid-3ef6ksr2 style="filter: invert();">
+				</a>
+				<nav class="header-nav menu" data-astro-cid-3ef6ksr2> <a
+						class="header__link cursor-pointer userActions font-titles md:font-texts "
+						data-astro-cid-3ef6ksr2 onclick="window.location.href='/'" href='/'> Главная
+					</a>
+				</nav>
+				<div class="inline-block md:hidden order--1 z-99" data-astro-cid-barybgjo>
+					<div class="burger-menu userActions p-2.75 rounded-[10px]" data-astro-cid-barybgjo>
+						<div class="burger-icon" data-astro-cid-barybgjo>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="theme-toggle userActions p-1.5 md:p-5 rounded-[10px] z-99"
+					id="theme-toggle" title="Переключение темы" aria-label="авто" aria-live="polite"
+					data-astro-cid-tego3hg3 data-astro-transition-persist="astro-k7lptchu-1"> <svg class="w-10 h-10"
+						viewBox="0 0 40 40" fill="none" aria-hidden="true" data-astro-cid-tego3hg3>
+						<defs data-astro-cid-tego3hg3>
+							<g id="dark-icon" data-astro-cid-tego3hg3>
+								<path
+									d="M20 26.5C23.5899 26.5 26.5 23.5899 26.5 20C26.5 16.4101 23.5899 13.5 20 13.5C16.4101 13.5 13.5 16.4101 13.5 20C13.5 23.5899 16.4101 26.5 20 26.5Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+								<path
+									d="M27.14 27.14L27.01 27.01M27.01 12.99L27.14 12.86L27.01 12.99ZM12.86 27.14L12.99 27.01L12.86 27.14ZM20 10.08V10V10.08ZM20 30V29.92V30ZM10.08 20H10H10.08ZM30 20H29.92H30ZM12.99 12.99L12.86 12.86L12.99 12.99Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+							</g>
+							<path id="light-icon"
+								d="M10.028 20.4222C10.3998 25.5709 14.912 29.7598 20.3122 29.9897C24.1223 30.1497 27.5297 28.4301 29.5742 25.7208C30.4209 24.6111 29.9665 23.8713 28.552 24.1212C27.8601 24.2412 27.1477 24.2912 26.4043 24.2612C21.3551 24.0612 17.2249 19.9723 17.2043 15.1435C17.1939 13.8439 17.4727 12.6142 17.9787 11.4945C18.5362 10.2548 17.8651 9.66493 16.5744 10.1948C12.4855 11.8644 9.6873 15.8533 10.028 20.4222Z"
+								stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+								stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+						</defs>
+						<use id="slot" data-astro-cid-tego3hg3></use>
+					</svg> </button>
+			</div>
+		</div>
+		<ul class="dropdown__list hidden md:flex flex-col justify-center gap-0 lg:gap-3 bg-bg-menu backdrop-blur-2xl"
+			data-astro-cid-3ef6ksr2>
+			<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+					class="dropdown__link flex w-full md:text-base lg:text-xl p-3 lg:p-5 userActionsLink"
+					href="labs/web-basics.html" data-astro-cid-3ef6ksr2> Основы веб-технологий </a> </li>
+		</ul>
+	</header>
+	<script
+		type="module">let n = !1; const u = document.querySelector(".dropdown__list"), t = document.querySelector("#courses-link"), c = document.querySelector("#web-course-site-link"), i = document.querySelector("#useful-link"), r = document.querySelector("#retake-link"), w = document.querySelector(".dropdown__list-sm"), d = (e, o) => { n = !n, o?.classList.toggle("open", n), e?.classList.toggle("open", n) }, s = e => { const o = e.id === "web-course-site-link" ? e.id.slice(0, -5) : "web-course-site/" + e.id.slice(0, -5); window.location.href = `/${o}/` }; let l = window.screen.width; window.addEventListener("resize", () => { l = window.screen.width }); const k = () => { if (l < 768) { d(t, w); return } d(t, u) }; t?.addEventListener("click", k); c?.addEventListener("click", () => s(c)); i?.addEventListener("click", () => s(i)); r?.addEventListener("click", () => s(r));</script>
+	<main class="flex-grow">
+		<section
+			class="section-heading bg-bg-primary rounded-b-[30px] md:rounded-b-[60px] pt-42.5 pb-25 mb-20 relative flex justify-center items-end px-5"
+			data-astro-cid-u4qoyrkz>
+			<div class="hero-container flex flex-col justify-end h-full text-center items-center"
+				data-astro-cid-u4qoyrkz> <button onclick="window.location.href='/web-course-site/useful/'"
+					class="flex gap-2 font-bold font-titles text-[20px] items-center mb-5" data-astro-cid-u4qoyrkz><img
+						src="..//../assets/img/chevron-right.svg" alt="" class="mb-1" data-astro-cid-u4qoyrkz><span
+						data-astro-cid-u4qoyrkz>Назад</span></button>
+				<h1 class="line-height-[1.1] max-w-[760px]" data-astro-cid-u4qoyrkz> Поток и блоки </h1>
+			</div>
+		</section>
+		<main class="mx-auto pb-14" data-astro-cid-gjtny2mx>
+			<div class="block"> <button type="button" id="back-to-top-btn" aria-label="Кнопка наверх"
+					class="fixed bottom-5 right-5 hidden z-999 animate-fade-in animate-duration-300" tabindex="1"><svg
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+						class="w-16 h-16 fill-bg-accent_second">
+						<path fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm.53 5.47a.75.75 0 00-1.06 0l-3 3a.75.75 0 101.06 1.06l1.72-1.72v5.69a.75.75 0 001.5 0v-5.69l1.72 1.72a.75.75 0 101.06-1.06l-3-3z"
+							clip-rule="evenodd"></path>
+					</svg> </button> </div>
+			<script
+				type="module">if (document.contains(document.getElementById("back-to-top-btn"))) { const t = document.getElementById("back-to-top-btn"); t && (window.addEventListener("scroll", () => { window.scrollY > 200 ? (t.classList.add("block"), t.classList.remove("hidden")) : (t.classList.add("hidden"), t.classList.remove("block")) }), t.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }) })) }</script>
+			<p id="test" data-astro-cid-gjtny2mx></p>
+			<div class="box-content max-w-[700px] m-auto px-3.5" data-astro-cid-gjtny2mx>
+				<article class="md" data-astro-cid-gjtny2mx>
+					<h1 id="поток">Поток</h1>
+					<p><em>Автор: Якушева Елена</em></p>
+					<p>Стандартный поток — это принцип расположения элементов на странице без использования стилей. Если
+						создать HTML-код и не подключить CSS, браузер отобразит страницу по встроенным стилям. Например,
+						заголовки <code>&#x3C;h1></code> будут больше, чем <code>&#x3C;h2></code>, а ссылки будут синими
+						и подчёркнутыми и они будут расположены согласно базовым правилам.</p>
+					<p>Элементы на странице можно разделить на две популярные группы: блочные (block) и строчные
+						(inline). Например, <code>&#x3C;h1></code>, <code>&#x3C;p></code>, <code>&#x3C;div></code> — это
+						блочный элемент, а <code>&#x3C;img></code>, <code>&#x3C;span></code> или <code>&#x3C;a></code> —
+						строчные. Поменять это поведение можно с помощью CSS-свойства <code>display</code>.</p>
+					<p>Если не использовать стили, браузер создаёт стандартный поток элементов. Блочные и строчные
+						элементы отображаются по-разному.</p>
+					<p><img src="../flow/image1.png"
+							alt="Пример отображения элементов в потоке по умолчанию без использования стилей"></p>
+					<p><img src="../flow/image12.png"
+							alt="Схематическое представление блочной модели (box model) в веб-дизайне"></p>
+					<h3 id="ширина-и-высота">Ширина и высота</h3>
+					<p>С помощью свойств <code>width</code> и <code>height</code> можно задавать размеры контентной
+						области блока. По умолчанию элементы с блочным отображением (<code>display: block</code>)
+						занимают всю ширину родителя, а высота подстраивается под контент. Элементы со строчным
+						отображением (<code>display: inline</code>) или строчно-блочным
+						(<code>display: inline-block</code>) подстраиваются под контент, но для inline-block можно
+						задавать размеры.</p>
+					<p>Пример:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0" data-language="css"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">class</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    width</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 200</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    height</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 200</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span></code></pre>
+					<p>В этом случае размер контентной области элемента будет 200 на 200 пикселей. Лучше не задавать
+						конкретную высоту блока, так как велика вероятность переполнения, т.е. когда контентная часть
+						вылезает за границы блока. По умолчанию высоте задается значение, при котором высота
+						автоматически подстраивается под контент:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">height: auto;</span></span></code></pre>
+					<h3 id="padding">Padding</h3>
+					<p>Свойство padding отвечает за внутренние отступы. В рамках разговора о блочной модели важно
+						помнить, что по умолчанию внутренние отступы прибавляются к ширине и высоте элемента.</p>
+					<p>То есть, если мы допишем нашему элементу <code>padding</code>:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0" data-language="css"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">class</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    width</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 200</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    height</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 200</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    padding</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 15</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 20</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span></code></pre>
+					<p>то ширина элемента будет равна 200 + 20 + 20 = 240 пикселей, а высота 200 + 15 + 15 = 230
+						пикселей.</p>
+					<p>Вообще padding, так же как и margin, который рассмотрим далее, имеет 4 значения, которые можно
+						указать по отдельности:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">padding-top</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 5px;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">padding-right</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 10px;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">padding-bottom</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 25px;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">padding-left</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 30px;</span></span></code></pre>
+					<p>значения будут определяются по часовой: верх, право, низ, лево. Также эту запись можно сократить,
+						если образуются пары отступов: сверху и снизу, слева и справа, тогда запись будет выглядеть так:
+					</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">padding: 20px 15px;</span></span></code></pre>
+					<p>что будет значить 20 пикселей сверху и снизу, и 15 пикселей справа и слева.
+						При этом если по всем сторонам один отступ, например 5 пикселей, то прописывается так:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">padding: 5px;</span></span></code></pre>
+					<h3 id="margin">Margin</h3>
+					<p>Внешние отступы, за которые отвечает свойство margin, не прибавляются к размерам элемента, но
+						влияют на то, сколько места на странице он занимает. Если элементу из нашего примера мы зададим
+						внешние отступы, то он будет занимать больше места, двигая при этом своих соседей:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">margin: 50px;</span></span></code></pre>
+					<p>тогда со всех сторон вокруг элемента будет отступ в 50 пикселей.
+						Так же можно указать более явные margin:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">margin-top</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 50px;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">margin-right</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 50px;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">margin-bottom</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 50px;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">margin-left</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: 50px;</span></span></code></pre>
+					<p>Когда нужно сдвинуть элемент на странице к определенной стороне, то можно использовать margin с
+						указанием стороны и значением auto:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">margin-right</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: auto;</span></span></code></pre>
+					<p>В данном случае элемент прижмется к левой границе родительского элемента.</p>
+					<p><img src="../flow/image4.png"
+							alt="Пример расчета итогового размера элемента с отступами и рамками"></p>
+					<p>Еще примеры:</p>
+					<p><img src="../flow/image5.png"
+							alt="Примеры работы с блочной моделью: внешний вид элементов с разными"></p>
+					<p>Если указать для margin два значения, то первое применится к внешним отступам по вертикали, а
+						второе — к внешним отступам по горизонтали.</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">margin: 0 auto;</span></span></code></pre>
+					<p>Краткую запись с двумя значениями часто используют, когда требуется отцентрировать элемент.
+						Однако в других ситуациях лучше к ней не прибегать, так как это ухудшает читаемость кода.</p>
+					<p>Но аккуратнее с margin, ведь может произойти схлопывание… Или по-другому margin collapsing — это
+						схлопывание внешних отступов. Такое поведение наблюдается только у вертикальных внешних
+						отступов. Проще говоря, когда вертикальные отступы двух блочных элементов соприкасаются, они не
+						складываются, а накладываются друг на друга, образуя общее пространство, равное большему из
+						отступов.</p>
+					<p>Рассмотрим на примере:</p>
+					<p>У нас есть 2 элемента:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="html"><code><span class="line"><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF"> class</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">"first"</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">>&#x3C;/</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF"> class</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">"second"</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">>&#x3C;/</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span></code></pre>
+					<p>Проришем им внешние отступы:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0" data-language="css"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">first</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    margin-bottom</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 30</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">second</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    margin-top</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 20</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span></code></pre>
+					<p>Тут мы ожидаем, что расстояние между ними будет 50 пикселей, но нет, в этот момент произойдет то
+						самое схлопывание и расстояние между элементами будет 30 пикселей.</p>
+					<p>Важно знать, что вертикальные отступы не схлопываются между элементами, у которых указано
+						свойство <code>position: absolute</code> или если у родительского элемента указано свойство
+						<code>display: grid</code> или <code>display: flex</code>, то отступы дочерних элементов не
+						схлопнутся.
+						Так же, чтобы избежать схлопывания лучше всего указывать только нижний отступ —
+						<code>margin-bottom</code>.
+					</p>
+					<h3 id="border">Border</h3>
+					<p>При определении размеров элемента в расчёт берутся и рамки, за которые отвечает свойство border.
+						Допишем нашему элементу border:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0" data-language="css"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">class</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    width</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 200</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    height</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 200</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    padding</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 15</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 20</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    border</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 5</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> solid white</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span></code></pre>
+					<p>Теперь конечные размеры нашего элемента будут: ширина — 200 + 20 + 20 + 5 + 5 = 250 пикселей, а
+						высота 200 + 15 + 15 + 5 + 5 = 240 пикселей.</p>
+					<h2 id="блочная-модель">Блочная модель</h2>
+					<p>Блочная модель, она же box model — это алгоритм расчёта размеров каждого отдельного элемента на
+						странице, которым браузеры пользуются при отрисовке. Чтобы точно понимать, каким в итоге
+						получится блок и сколько места он займёт, держите в голове следующую картинку:</p>
+					<p><img src="../flow/image2.png"
+							alt="Подробная схема блочной модели с элементами: ширина, отступы, рамки, поля"></p>
+					<ul>
+						<li><code>width</code> — ширина элемента;</li>
+						<li><code>height</code> — высота элемента;</li>
+						<li><code>padding</code> — внутренние отступы;</li>
+						<li><code>border</code> — рамка по краю элемента;</li>
+						<li><code>margin</code> — внешние отступы.</li>
+					</ul>
+					<p><img src="../flow/image3.png" alt="Иллюстрация расчета размера блока с учётом padding и margin">
+					</p>
+					<h3 id="box-sizing">Box-sizing</h3>
+					<p>По умолчанию браузеры рассчитывают размеры элемента ровно так, как описано выше, прибавляя
+						внутренние отступы и рамки к ширине и высоте. С этим могут быть связаны неприятные сюрпризы,
+						когда элемент в вёрстке занимает больше места, чем вы ожидаете.</p>
+					<p>Мы можем поменять стандартное поведение и указать браузеру, что ширина и высота, заданные в CSS,
+						должны включать в себя, в том числе, внутренние отступы и рамки. Делается это при помощи
+						свойства box-sizing.</p>
+					<p>Например создадим 2 элемента на странице:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="html"><code><span class="line"><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF"> class</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">"el first"</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">>&#x3C;/</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF"> class</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">"el second"</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">>&#x3C;/</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">div</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span></code></pre>
+					<p>И зададим им общий стиль:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0" data-language="css"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">el</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    display</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> inline-block</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    width</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 100</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    height</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 100</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    padding</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 25</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    border</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 10</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">px</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> solid </span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">#</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">ffffff</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span></code></pre>
+					<p>Отличие будет только в цвете фона и значении <code>box-sizing</code>:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0" data-language="css"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">first</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    box-sizing</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> content-box</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    background-color</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> #</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">2e9aff</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-dark:#F9E2AF">second</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    box-sizing</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> border-box</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">    background-color</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> #</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">f498ad</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span></code></pre>
+					<p>В итоге, как мы видим на картинке ниже, элементы получились разного размера. Почему? Ведь ширина,
+						высота, отступы и рамка одинаковые…</p>
+					<p><img src="../flow/image6.png"
+							alt="Сравнение элементов с разными значениями свойства box-sizing: content-box и border-box">
+					</p>
+					<p>Причина в том, что при значении свойства <code>box-sizing</code>, равном
+						<code>content-box</code>, ширина элемента рассчитывается следующим образом: Ширина контентной
+						области (100) + внутренний отступ слева и справа (25 + 25) + ширина правой и левой рамок (10 +
+						10). Итого: 170 пикселей. Аналогично с высотой. Выходит что первый элемент получил размеры 170
+						на 170.
+					</p>
+					<p>Размер второго элемента считается иначе. Из-за значения свойства <code>box-sizing</code> браузер
+						воспринимает <code>width</code> и <code>height</code> как конечные размеры элемента. Получается
+						что в 100 пикселей указанной ширины уже включены и внутренние боковые отступы и боковые рамки.
+						Размеры второго элемента будут 100 на 100.</p>
+					<p>В качестве значения для свойства <code>box-sizing</code> невозможно использовать что-то кроме
+						ключевых слов. Значение может быть только одно.</p>
+					<p>Доступные значения:</p>
+					<ul>
+						<li><code>content-box</code> — значение по умолчанию. Финальная ширина = ширина + правый
+							внутренний отступ + левый внутренний отступ + правая рамка + левая рамка</li>
+						<li><code>border-box</code> — значение <code>width</code> и <code>height</code> являются
+							финальными размерами элемента. Финальная ширина = ширина</li>
+					</ul>
+					<p>И помните:</p>
+					<ul>
+						<li>Свойство нельзя анимировать при помощи <code>transition</code></li>
+						<li>Свойство не наследуется.</li>
+						<li>При любом значении свойства внешние отступы (<code>margin</code>) в расчёт не берутся.</li>
+						<li>Значение по умолчанию: <code>content-box</code>.</li>
+					</ul>
+					<h3 id="display">Display</h3>
+					<p>По умолчанию почти все элементы в HTML имеют блочный и строчный тип отображения. Но в вёрстке
+						часто бывает, что нужно сделать элемент не строчным, а блочным. И наоборот. Тут на помощь
+						приходит свойство <code>display</code>.</p>
+					<p>Рассмотрим четыре основных значения:</p>
+					<ul>
+						<li>блочные, <code>display: block</code>,</li>
+						<li>строчные, <code>display: inline</code>,</li>
+						<li>блочно-строчные, <code>display: inline-block</code>,</li>
+						<li>гибкие или флексовые (флексы), <code>display: flex</code>.</li>
+					</ul>
+					<h4 id="блочные">Блочные:</h4>
+					<p><code>block</code> — элемент отображается как блок. Блочные элементы в нормальном потоке
+						располагаются друг под другом, всегда занимая всю доступную ширину. Высота блочного элемента по
+						умолчанию равна высоте его содержимого. Примером элемента, который имеет значение
+						<code>display: block</code>, может быть <code>div</code>. Даже если ширина блочного элемента
+						явно задана и позволяет разместить справа ещё один такой элемент, поток всё равно продолжит
+						выстраивать их друг под другом.
+					</p>
+					<p><img src="../flow/image7.png"
+							alt="Пример блочного элемента, занимающего всю ширину родительского контейнера"></p>
+					<h4 id="строчные">Строчные</h4>
+					<p><code>inline</code> — элемент отображается как строчный элемент и не создаёт новый блок. Элемент
+						занимает столько места, сколько ему нужно для отображения содержимого. Примером элемента,
+						который имеет значение <code>display: inline</code>, может быть <code>span</code>. Строчные
+						элементы располагаются друг за другом, как слова в предложении. Ширина и высота строчного
+						элемента равна ширине и высоте содержимого. В отличие от блочного элемента, мы не можем
+						управлять шириной и высотой строчного элемента через CSS.</p>
+					<p>Несколько строчных элементов будут стремиться уместиться на одной строке, насколько хватает
+						ширины родителя. Если ширины родителя не хватает, то лишний текст строчного элемента переносится
+						на следующую строку.</p>
+					<p><img src="../flow/image8.png" alt="Пример строчных элементов, которые размещаются в одну строку">
+					</p>
+					<p><strong>Ключевые моменты:</strong></p>
+					<ul>
+						<li>не реагируют на <code>width</code> и <code>height</code>;</li>
+						<li>воспринимают только горизонтальные внешние отступы (<code>margin</code>);</li>
+						<li>воспринимают только горизонтальные внутренние отступы (<code>padding</code>);</li>
+						<li>если им задать вертикальный <code>padding</code>, то визуально увеличатся, но при этом не
+							станут занимать больше места, т. е. не оттолкнут другие элементы;</li>
+						<li>воспринимают рамки (<code>border</code>), но при этом, аналогично <code>padding</code>,
+							сверзу и снизу не увеличат занимаемое место.</li>
+					</ul>
+					<p><img src="../flow/image9.png"
+							alt="Пример строчных элементов с внешними и внутренними отступами, рамками"></p>
+					<h4 id="строчно-блочные">Строчно-блочные</h4>
+					<p><code>inline-block</code> — элемент отображается как строчный элемент, но его содержимое может
+						быть отформатировано как блок. Элемент занимает столько места, сколько ему нужно для отображения
+						содержимого, но может иметь ширину и высоту. Примером элемента, который имеет значение
+						<code>display: inline-block</code>, может быть <code>button</code>.
+					</p>
+					<p>По сравнению с <code>display: inline</code>, основным отличием является то, что
+						<code>display: inline-block</code> позволяет задавать ширину и высоту элемента. По сравнению с
+						<code>display: block</code>, основным отличием является то, что
+						<code>display: inline-block</code> не добавляет разрыв строки после элемента, поэтому элемент
+						может сидеть рядом с другими элементами.
+					</p>
+					<p>Иногда возникает необходимость расположить в ряд несколько элементов с заданными размерами.
+						Элементы со строчным боксом для этого не подходят, так как не воспринимают размеры. Элементы с
+						блочным боксом тоже не подходят, так как до и после них существует перенос строки. Простой
+						способ - использовать элементы с строчно-блочным боксом. В HTML нет элементов с строчно-блочным
+						боксом по умолчанию, но любой элемент можно переключить в такой режим отображения, задав ему
+						свойство <code>display</code> со значением <code>inline-block</code>.</p>
+					<p><strong>Особенности элементов со строчно-блочным боксом:</strong></p>
+					<ul>
+						<li>им можно задавать размеры, рамки и отступы, как и элементам с блочным боксом;</li>
+						<li>их ширина по умолчанию зависит от содержания, а не растягивается на всю ширину контейнера;
+						</li>
+						<li>они не порождают принудительных переносов строк, поэтому могут располагаться на одной
+							строке, пока помещаются в родительский контейнер;</li>
+						<li>элементы в одной строке выравниваются вертикально подобно элементам со строчным боксом.</li>
+					</ul>
+					<p><img src="../flow/image10.png"
+							alt="Пример блочно-строчного элемента, сочетающего свойства блочных и строчных элементов">
+					</p>
+					<h4 id="флексы">Флексы</h4>
+					<p><code>flex</code> — основной инструмент построения крупных сеток и микросеток.</p>
+					<p><img src="../flow/image11.png"
+							alt="Пример использования flexbox для выравнивания и гибкой компоновки элементов"></p>
+					<p>Есть несколько особенностей, которые следует помнить и учитывать при использовании флексов:</p>
+					<ul>
+						<li>все блоки очень легко делаются «резиновыми», что уже следует из названия <code>flex</code>;
+						</li>
+						<li>элементы могут сжиматься и растягиваться по заданным правилам, занимая нужное пространство;
+						</li>
+						<li>выравнивание по вертикали и горизонтали, базовой линии текста, отлично работает;</li>
+						<li>расположение элементов в HTML не имеет решающего значения. Его можно поменять в CSS;</li>
+						<li>элементы могут автоматически выстраиваться в несколько строк/столбцов, занимая всё
+							предоставленное место;</li>
+						<li>множество языков в мире используют написание справа налево <code>rtl</code> (right-to-left),
+							в отличии от привычного нам <code>ltr</code> (left-to-right), флекс адаптирован для этого,
+							т.е. в нём есть «начало» и «конец», а не «право» и «лево»;</li>
+						<li>синтаксис CSS-правил очень прост и осваивается довольно быстро.</li>
+					</ul>
+					<p>При этом есть вещи, которые не стоит забывать при использовании флексбокса:</p>
+					<ul>
+						<li>Не используйте флексы там, где в этом нет необходимости.</li>
+						<li>Разберитесь с флексбоксом и знайте его основы. Так намного легче достичь желаемого
+							результата. К примеру, по умолчанию флекс-элементы вытягиваются по поперечной оси и
+							установленное значение высоты для элемента никак не учитывается.</li>
+						<li>Не забывайте про <code>margin</code>. Они учитываются при установке выравнивания по осям.
+							Важно помнить, что <code>margin</code> во флексбоксе не «схлопываются», как это происходит в
+							обычном потоке.</li>
+						<li>Значение <code>float</code> у флекс-блоков не учитывается и не имеет значения.</li>
+					</ul>
+					<p>Но подробнее о них вы узнаете в другой статье ;)</p>
+				</article>
+				<address class="flex items-center justify-between gap-4 mt-10" data-astro-cid-gjtny2mx>
+					<div class="flex items-center gap-2.5" data-astro-cid-gjtny2mx>
+						<div class="aspect-square w-12 flex rounded-full overflow-hidden bg-bg-tertiary"
+							data-astro-cid-gjtny2mx> <img src="..//../assets/img/cat-glasses.svg"
+								class="w-full h-full object-contain object-bottom" alt="Якушева Елена"
+								data-astro-cid-gjtny2mx> </div>
+						<div class="flex flex-col gap-1" data-astro-cid-gjtny2mx>
+							<p class="text-xs xl:text-base text-text-inverted !leading-[1.2] not-italic"
+								data-astro-cid-gjtny2mx> Якушева Елена </p> <time
+								class="text-xs xl:text-base text-text-tertiary leading-[1.2] xl:leading-[1.2] not-italic"
+								id="last-edit-date" data-astro-cid-gjtny2mx></time>
+						</div>
+					</div>
+					<div class="aspect-square w-12 flex items-center justify-center border rounded-full border-bg-accent_second text-bg-accent_second hover:border-bg-hover active:border-bg-active focus:border-bg-active hover:text-bg-hover active:text-bg-active focus:text-bg-active cursor-pointer share-button"
+						data-astro-cid-gjtny2mx> <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M16.2385 15.5943C15.4946 15.131 14.5639 15.0856 13.7785 15.4743L10.7785 12.4743C11.0007 11.9676 11.0499 11.4018 10.9185 10.8643C10.8962 10.7895 10.8694 10.716 10.8385 10.6443L13.7785 7.70433C14.8794 8.24712 16.2117 7.90299 16.912 6.89498C17.6122 5.88697 17.4698 4.51834 16.5771 3.67607C15.6843 2.83381 14.3096 2.77132 13.3441 3.52909C12.3786 4.28687 12.1126 5.63694 12.7185 6.70433L9.9485 9.43433C9.00536 8.76394 7.72541 8.82839 6.85437 9.59013C5.98333 10.3519 5.74886 11.6118 6.28756 12.6359C6.82626 13.66 7.99733 14.1806 9.1185 13.8943C9.35153 13.8259 9.57372 13.7249 9.7785 13.5943L12.7785 16.5943C12.1624 17.7989 12.6209 19.2751 13.811 19.9186C15.0012 20.5621 16.4875 20.1375 17.158 18.9623C17.8286 17.7871 17.438 16.2916 16.2785 15.5943H16.2385Z"
+								fill="currentColor"></path>
+						</svg> </div>
+				</address>
+			</div>
+		</main>
+	</main>
+	<footer class="bg-bg-primary z-99 rounded-t-[30px] sm:rounded-t-[60px] px-10 py-14" data-astro-cid-sz7xmlte>
+		<div class="top-content flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between max-w-screen-xl mx-auto mb-20 items-center sm:items-start"
+			data-astro-cid-sz7xmlte> <img class="mb-auto" width="200px" src="/../assets/img/logo-full.svg"
+				alt="Logo Web-Studio" style="filter: invert()" data-astro-cid-sz7xmlte>
+			<div class="text-center sm:text-start" data-astro-cid-sz7xmlte>
+				<h3 class="mb-2" data-astro-cid-sz7xmlte>Контакты</h3>
+				<ul class="flex flex-col items-center sm:items-start sm:flex-row gap-10 sm:gap-19"
+					data-astro-cid-sz7xmlte>
+					<li class="flex flex-col gap-1 sm:max-w-[205px]" data-astro-cid-sz7xmlte>
+						<p class="line-height-none" data-astro-cid-sz7xmlte>Нерсисян Артем Арменович</p>
+						<p class="text-sm mb-1" data-astro-cid-sz7xmlte>Fullstack-разработчик</p>
+						<div class="flex justify-center sm:justify-start gap-1" data-astro-cid-sz7xmlte> <img
+								src="/../assets/img/tg-logo.svg" alt="telegram-logo" data-astro-cid-sz7xmlte> <a
+								class="text-sm" href="https://t.me/slavaver" data-astro-cid-sz7xmlte>
+								@timqwees </a> </div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="flex flex-col text-center sm:text-start sm:flex-row justify-between w-full align-bottom max-w-screen-xl mx-auto"
+			data-astro-cid-sz7xmlte>
+			<p class="text-center text-[16px] mt-auto" data-astro-cid-sz7xmlte>
+				&copy; 2025 TimQwees
+			</p>
+			<div data-astro-cid-sz7xmlte>
+				<p class="text-[16px]" data-astro-cid-sz7xmlte>
+					Разработка <a class="text-[16px]" href="https://t.me/qalqaa" data-astro-cid-sz7xmlte>@timqwees</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
+<script
+	type="module">const r = () => { const t = window.location.href.match(/([^\/]+)\/?$/); return t ? t[1] : null }, a = t => fetch(`https://api.github.com/repos/slavaver/web-course-site/commits?path=/src/useful/${t}.md&per_page=1`).then(e => e.json()).then(e => e.length === 0 ? null : new Date(e[0].commit.author.date).toLocaleDateString("ru-RU", { day: "numeric", month: "numeric", year: "numeric" })).catch(() => null), c = document.getElementById("last-edit-date"), n = r(); n && a(n).then(t => { t && (c.innerText = `Последнее обновление: ${t}`) });</script>

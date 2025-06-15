@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<script type="module" src="snow-fall.js"></script> <!--  -->
+<html lang="ru" class="scroll-smooth scroll-pt-16">
+
+<head>
+	<script src="themetoggle.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+	<meta name="description"
+		content="Сайт по веб-технологиям, созданный для учеников Московского Политехнического Университета.">
+	<script defer src="https://cloud.umami.is/script.js"
+		data-website-id="b6ab8e19-a315-491e-931e-41ec87b0957f"></script>
+	<title>Веб-технологии</title>
+	<link rel="stylesheet" href="_astro/index.Csm0ttLF.css">
+	<style>
+		.courses-item-goto-icon[data-astro-cid-xgzpnzj7] {
+			background: url(/../assets/img/goto.svg) no-repeat center;
+			width: 50px;
+			height: 50px;
+			border: 1.5px solid var(--color-border);
+			border-radius: 100%;
+			color: var(--color-border)
+		}
+
+		.section-hero[data-astro-cid-j7pv25f6],
+		.section-useful[data-astro-cid-j7pv25f6] {
+			position: relative;
+			overflow: hidden;
+			z-index: 1
+		}
+
+		.section-hero[data-astro-cid-j7pv25f6]:before,
+		.section-useful[data-astro-cid-j7pv25f6]:before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-bg-accent-first);
+			-webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-size: cover;
+			mask-size: cover
+		}
+
+		#hiddenCourses[data-astro-cid-j7pv25f6] {
+			height: 0px;
+			overflow: hidden;
+			transition: .3s ease-in-out
+		}
+
+		#hiddenCourses[data-astro-cid-j7pv25f6].open {
+			max-height: 50vh;
+			margin-bottom: 1.25rem
+		}
+
+		.useful-item-goto-icon[data-astro-cid-2ncw2pea] {
+			background: url(/../assets/img/goto.svg) no-repeat center;
+			width: 50px;
+			height: 50px;
+			border: 1.5px solid var(--color-border);
+			border-radius: 100%;
+			color: var(--color-border)
+		}
+	</style>
+	<link rel="stylesheet" href="_astro/index.Cj0cvOTk.css">
+</head>
+
+<body class="flex flex-col min-h-screen transition bg-bg-screen text-text-primary font-texts">
+	<header class="header-container w-full fixed z-50" data-astro-cid-3ef6ksr2>
+		<div class="header md:bg-bg-menu text-text-primary flex-col gap-2 py-2.5 px-2.5 md:px-10 rounded-2xl box-border md:backdrop-blur-xl"
+			data-astro-cid-3ef6ksr2>
+			<div class="header-content-vertical w-full justify-between items-center mx-auto max-w-screen-xl flex"
+				data-astro-cid-3ef6ksr2> <a class="userActionsLink hidden md:block" onclick="window.location.href='/'"
+					href='/' data-astro-cid-3ef6ksr2> <img class="w-10 h-10"
+						src="https://cdn4.iconfinder.com/data/icons/finite-editor/16/code-1024.png" alt="logo"
+						data-astro-cid-3ef6ksr2 style="filter: invert();">
+				</a>
+				<nav class="header-nav menu" data-astro-cid-3ef6ksr2> <a
+						class="header__link cursor-pointer userActions font-titles md:font-texts "
+						data-astro-cid-3ef6ksr2 onclick="window.location.href='/'" href='/'> Главная
+					</a>
+				</nav>
+				<div class="inline-block md:hidden order--1 z-99" data-astro-cid-barybgjo>
+					<div class="burger-menu userActions p-2.75 rounded-[10px]" data-astro-cid-barybgjo>
+						<div class="burger-icon" data-astro-cid-barybgjo>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="theme-toggle userActions p-1.5 md:p-5 rounded-[10px] z-99"
+					id="theme-toggle" title="Переключение темы" aria-label="авто" aria-live="polite"
+					data-astro-cid-tego3hg3 data-astro-transition-persist="astro-k7lptchu-1"> <svg class="w-10 h-10"
+						viewBox="0 0 40 40" fill="none" aria-hidden="true" data-astro-cid-tego3hg3>
+						<defs data-astro-cid-tego3hg3>
+							<g id="dark-icon" data-astro-cid-tego3hg3>
+								<path
+									d="M20 26.5C23.5899 26.5 26.5 23.5899 26.5 20C26.5 16.4101 23.5899 13.5 20 13.5C16.4101 13.5 13.5 16.4101 13.5 20C13.5 23.5899 16.4101 26.5 20 26.5Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+								<path
+									d="M27.14 27.14L27.01 27.01M27.01 12.99L27.14 12.86L27.01 12.99ZM12.86 27.14L12.99 27.01L12.86 27.14ZM20 10.08V10V10.08ZM20 30V29.92V30ZM10.08 20H10H10.08ZM30 20H29.92H30ZM12.99 12.99L12.86 12.86L12.99 12.99Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+							</g>
+							<path id="light-icon"
+								d="M10.028 20.4222C10.3998 25.5709 14.912 29.7598 20.3122 29.9897C24.1223 30.1497 27.5297 28.4301 29.5742 25.7208C30.4209 24.6111 29.9665 23.8713 28.552 24.1212C27.8601 24.2412 27.1477 24.2912 26.4043 24.2612C21.3551 24.0612 17.2249 19.9723 17.2043 15.1435C17.1939 13.8439 17.4727 12.6142 17.9787 11.4945C18.5362 10.2548 17.8651 9.66493 16.5744 10.1948C12.4855 11.8644 9.6873 15.8533 10.028 20.4222Z"
+								stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+								stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+						</defs>
+						<use id="slot" data-astro-cid-tego3hg3></use>
+					</svg> </button>
+			</div>
+		</div>
+		<ul class="dropdown__list hidden md:flex flex-col justify-center gap-0 lg:gap-3 bg-bg-menu backdrop-blur-2xl"
+			data-astro-cid-3ef6ksr2>
+			<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+					class="dropdown__link flex w-full md:text-base lg:text-xl p-3 lg:p-5 userActionsLink"
+					href="labs/web-basics.html" data-astro-cid-3ef6ksr2> Основы веб-технологий </a> </li>
+		</ul>
+	</header>
+	<script
+		type="module">let n = !1; const u = document.querySelector(".dropdown__list"), t = document.querySelector("#courses-link"), c = document.querySelector("#web-course-site-link"), i = document.querySelector("#useful-link"), r = document.querySelector("#retake-link"), w = document.querySelector(".dropdown__list-sm"), d = (e, o) => { n = !n, o?.classList.toggle("open", n), e?.classList.toggle("open", n) }, s = e => { const o = e.id === "web-course-site-link" ? e.id.slice(0, -5) : "web-course-site/" + e.id.slice(0, -5); window.location.href = `/${o}/` }; let l = window.screen.width; window.addEventListener("resize", () => { l = window.screen.width }); const k = () => { if (l < 768) { d(t, w); return } d(t, u) }; t?.addEventListener("click", k); c?.addEventListener("click", () => s(c)); i?.addEventListener("click", () => s(i)); r?.addEventListener("click", () => s(r));</script>
+	<main class="flex-grow"> <snow-fall class="z--1"
+			style="--snow-fall-color: var(--color-bg-accent-first)"></snow-fall>
+		<section
+			class="section-hero bg-bg-primary rounded-b-[30px] sm:rounded-b-[60px] h-[600px] sm:h-2xl md:h-3xl relative mb-15"
+			data-astro-cid-j7pv25f6>
+			<div class="hero-container px-3 flex flex-col justify-end h-full text-center items-center"
+				data-astro-cid-j7pv25f6>
+				<h1 class="line-height-[1] font-size-32px md:font-size-72px lg:font-size-82px" data-astro-cid-j7pv25f6>
+					Веб-разработка
+				</h1>
+				<h2 class="line-height-[1] font-size-24px md:font-size-40px lg:font-size-48px font-400 mb-5"
+					data-astro-cid-j7pv25f6>
+					от теории к практике
+				</h2>
+				<p class="mb-7.5 w-2/3 sm:max-w-1/3" data-astro-cid-j7pv25f6>
+					Три&nbsp;курса&nbsp;последовательно погружают в&nbsp;разработку
+					на&nbsp;стороне клиента
+				</p> <img width="400" height="400" src="/../assets/img/cat-code.webp" alt="смешной котик программирует"
+					loading="lazy" data-astro-cid-j7pv25f6>
+			</div>
+		</section>
+		<section class="section-courses pt-15 mb-30" id="courses" data-astro-cid-j7pv25f6>
+			<div class="courses-container max-w-screen px-5 md:px-10 xl:px-5 xl:max-w-screen-xl mx-auto"
+				data-astro-cid-j7pv25f6>
+				<h2 class="courses-title light:text-text-secondary title" data-astro-cid-j7pv25f6>Курсы</h2>
+				<div class="courses-list flex flex-col" data-astro-cid-j7pv25f6>
+					<ul id="staticCourses" class="flex flex-col gap-5 mb-5" data-astro-cid-j7pv25f6>
+						<style>
+							.justify-between,
+							[justify-between=""] {
+								justify-content: space-between;
+							}
+						</style>
+						<li data-astro-cid-xgzpnzj7> <a aria-label="Перейти к курсу" href="labs/web-basics.html"
+								class="flex flex-col md:flex-row justify-between p-5 md:p-7.5 lg:p-10 courses-item rounded-[30px] bg-bg-secondary userActions"
+								data-astro-cid-xgzpnzj7>
+								<h3 class="courses-item-title no-break-hyphen" data-astro-cid-xgzpnzj7> Основы
+									веб-технологий </h3>
+								<div class="max-w-auto md:max-w-[365px] gap-14 flex flex-col items-end"
+									data-astro-cid-xgzpnzj7>
+									<p class="courses-item-descr w-full" data-astro-cid-xgzpnzj7> Изучаем, как работает
+										браузер, рассматриваем адаптивную верстку и ключевые принципы доступности </p>
+									<i class="courses-item-goto-icon" data-astro-cid-xgzpnzj7></i>
+								</div>
+							</a> </li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+
+
+		<section id="useful" class="section-useful bg-bg-primary py-15 rounded-[30px] sm:rounded-[60px] mb-30"
+			data-astro-cid-j7pv25f6>
+			<div class="useful-container max-w-screen px-5 md:px-10 xl:px-5 xl:max-w-screen-xl mx-auto"
+				data-astro-cid-j7pv25f6>
+				<h2 class="useful-title title" data-astro-cid-j7pv25f6>База знаний</h2>
+				<ul class="useful-list grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-5" data-astro-cid-j7pv25f6>
+					<li class="useful-card aspect-ratio-square" data-title="Правила курса" data-astro-cid-2ncw2pea> <a
+							class="card rounded-[30px] aspect-ratio-square flex flex-col bg-bg-secondary p-5 lg:p-7.5 lg:p-10 justify-between w-full userActions"
+							aria-label="Перейти к статье" href="useful/rules.html" data-astro-cid-2ncw2pea>
+							<div class="card__top-content" data-astro-cid-2ncw2pea>
+								<h3 class="useful-item-title" data-astro-cid-2ncw2pea> Правила курса </h3>
+								<p class="useful-item-descr" data-astro-cid-2ncw2pea> Небольшой свод правил, который
+									поможет успешно пройти курс. </p>
+							</div>
+							<div class="card__bottom-content flex justify-between" data-astro-cid-2ncw2pea>
+								<div class="flex items-end gap-4" data-astro-cid-2ncw2pea>
+									<div class="flex items-center gap-2" data-astro-cid-2ncw2pea> <img class="mb-1"
+											src="/../assets/img/time-icon.svg" alt="time-icon" data-astro-cid-2ncw2pea>
+										<span class="text-[16px]" data-astro-cid-2ncw2pea>~1 мин</span>
+									</div> <span class="text-[16px]" data-astro-cid-2ncw2pea>21.09.25</span>
+								</div> <i class="useful-item-goto-icon" data-astro-cid-2ncw2pea></i>
+							</div>
+						</a> </li>
+					<li class="useful-card aspect-ratio-square" data-title="Полезные ссылки" data-astro-cid-2ncw2pea> <a
+							class="card rounded-[30px] aspect-ratio-square flex flex-col bg-bg-secondary p-5 lg:p-7.5 lg:p-10 justify-between w-full userActions"
+							aria-label="Перейти к статье" href="useful/links.html" data-astro-cid-2ncw2pea>
+							<div class="card__top-content" data-astro-cid-2ncw2pea>
+								<h3 class="useful-item-title" data-astro-cid-2ncw2pea> Полезные ссылки </h3>
+								<p class="useful-item-descr" data-astro-cid-2ncw2pea> Подборки ссылок на полезные
+									материалы, ресурсы, людей, опросы. </p>
+							</div>
+							<div class="card__bottom-content flex justify-between" data-astro-cid-2ncw2pea>
+								<div class="flex items-end gap-4" data-astro-cid-2ncw2pea>
+									<div class="flex items-center gap-2" data-astro-cid-2ncw2pea> <img class="mb-1"
+											src="/../assets/img/time-icon.svg" alt="time-icon" data-astro-cid-2ncw2pea>
+										<span class="text-[16px]" data-astro-cid-2ncw2pea>~4 мин</span>
+									</div> <span class="text-[16px]" data-astro-cid-2ncw2pea>21.09.25</span>
+								</div> <i class="useful-item-goto-icon" data-astro-cid-2ncw2pea></i>
+							</div>
+						</a> </li>
+					<li data-astro-cid-j7pv25f6>
+						<p class="order-0" data-astro-cid-j7pv25f6>
+							Здесь вы найдете подборки полезных ресурсов, конспекты,
+							а также статьи с теорией, раскрывающие ключевые темы
+							курсов
+						</p>
+					</li>
+					<div class="hidden sm:block" data-astro-cid-j7pv25f6>
+						<li class="useful-card aspect-ratio-square" data-course="first-sem" data-title="HTML. Часть 5"
+							data-astro-cid-2ncw2pea> <a
+								class="card rounded-[30px] aspect-ratio-square flex flex-col bg-bg-secondary p-5 lg:p-7.5 lg:p-10 justify-between w-full userActions"
+								aria-label="Перейти к статье" href="useful/html-5.html" data-astro-cid-2ncw2pea>
+								<div class="card__top-content" data-astro-cid-2ncw2pea>
+									<h3 class="useful-item-title" data-astro-cid-2ncw2pea> HTML. Часть 5 </h3>
+									<p class="useful-item-descr" data-astro-cid-2ncw2pea> Инструкция по правильной
+										разметке и созданию доступных HTML-форм на сайте. </p>
+								</div>
+								<div class="card__bottom-content flex justify-between" data-astro-cid-2ncw2pea>
+									<div class="flex items-end gap-4" data-astro-cid-2ncw2pea>
+										<div class="flex items-center gap-2" data-astro-cid-2ncw2pea> <img class="mb-1"
+												src="/../assets/img/time-icon.svg" alt="time-icon"
+												data-astro-cid-2ncw2pea>
+											<span class="text-[16px]" data-astro-cid-2ncw2pea>~8 мин</span>
+										</div> <span class="text-[16px]" data-astro-cid-2ncw2pea>23.09.24</span>
+									</div> <i class="useful-item-goto-icon" data-astro-cid-2ncw2pea></i>
+								</div>
+							</a> </li>
+					</div>
+					<li class="other-useful flex flex-col justify-between order-1 lg:order-0" data-astro-cid-j7pv25f6>
+						<img src="/../assets/img/cat-chill.svg" alt="чилл кот лежит за ноутбуком" aria-hidden="true"
+							data-astro-cid-j7pv25f6> <button
+							class="font-titles font-600 bg-bg-accent_second sm:px-5 px-11.5 py-5 rounded-[20px] userActionsLinkAlt"
+							onclick="window.location.href='/useful/pseudo.html'" data-astro-cid-j7pv25f6>Еще
+							больше
+							полезностей</button>
+					</li>
+					<div class="hidden sm:block" data-astro-cid-j7pv25f6>
+						<li class="useful-card aspect-ratio-square" data-course="first-sem"
+							data-title="Скрытие элементов" data-astro-cid-2ncw2pea> <a
+								class="card rounded-[30px] aspect-ratio-square flex flex-col bg-bg-secondary p-5 lg:p-7.5 lg:p-10 justify-between w-full userActions"
+								aria-label="Перейти к статье" href="useful/hide-element.html" data-astro-cid-2ncw2pea>
+								<div class="card__top-content" data-astro-cid-2ncw2pea>
+									<h3 class="useful-item-title" data-astro-cid-2ncw2pea> Скрытие элементов </h3>
+									<p class="useful-item-descr" data-astro-cid-2ncw2pea> Пример класса, который
+										помогает визуально скрыть элемент, но оставить его для доступности. </p>
+								</div>
+								<div class="card__bottom-content flex justify-between" data-astro-cid-2ncw2pea>
+									<div class="flex items-end gap-4" data-astro-cid-2ncw2pea>
+										<div class="flex items-center gap-2" data-astro-cid-2ncw2pea> <img class="mb-1"
+												src="/../assets/img/time-icon.svg" alt="time-icon"
+												data-astro-cid-2ncw2pea>
+											<span class="text-[16px]" data-astro-cid-2ncw2pea>~2 мин</span>
+										</div> <span class="text-[16px]" data-astro-cid-2ncw2pea>27.10.25</span>
+									</div> <i class="useful-item-goto-icon" data-astro-cid-2ncw2pea></i>
+								</div>
+							</a> </li>
+					</div>
+				</ul>
+			</div>
+		</section>
+
+
+	</main>
+	<footer class="bg-bg-primary z-99 rounded-t-[30px] sm:rounded-t-[60px] px-10 py-14" data-astro-cid-sz7xmlte>
+		<div class="top-content flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between max-w-screen-xl mx-auto mb-20 items-center sm:items-start"
+			data-astro-cid-sz7xmlte> <img class="mb-auto" width="200px" src="/../assets/img/logo-full.svg"
+				alt="Logo Web-Studio" style="filter: invert()" data-astro-cid-sz7xmlte>
+			<div class="text-center sm:text-start" data-astro-cid-sz7xmlte>
+				<h3 class="mb-2" data-astro-cid-sz7xmlte>Контакты</h3>
+				<ul class="flex flex-col items-center sm:items-start sm:flex-row gap-10 sm:gap-19"
+					data-astro-cid-sz7xmlte>
+					<li class="flex flex-col gap-1 sm:max-w-[205px]" data-astro-cid-sz7xmlte>
+						<p class="line-height-none" data-astro-cid-sz7xmlte>Нерсисян Артем Арменович</p>
+						<p class="text-sm mb-1" data-astro-cid-sz7xmlte>Fullstack-разработчик</p>
+						<div class="flex justify-center sm:justify-start gap-1" data-astro-cid-sz7xmlte> <img
+								src="/../assets/img/tg-logo.svg" alt="telegram-logo" data-astro-cid-sz7xmlte> <a
+								class="text-sm" href="https://t.me/slavaver" data-astro-cid-sz7xmlte>
+								@timqwees </a> </div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="flex flex-col text-center sm:text-start sm:flex-row justify-between w-full align-bottom max-w-screen-xl mx-auto"
+			data-astro-cid-sz7xmlte>
+			<p class="text-center text-[16px] mt-auto" data-astro-cid-sz7xmlte>
+				&copy; 2025 TimQwees
+			</p>
+			<div data-astro-cid-sz7xmlte>
+				<p class="text-[16px]" data-astro-cid-sz7xmlte>
+					Разработка <a class="text-[16px]" href="https://t.me/qalqaa" data-astro-cid-sz7xmlte>@timqwees</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
+<script
+	type="module">document.querySelectorAll(".no-break-hyphen").forEach(o => { o.innerHTML = o.innerHTML.replace(/-/g, "&#8209;") }); const e = document.getElementById("showMoreCoursesBtn"), t = document.getElementById("hiddenCourses"), s = ["Показать все", "Спрятать"]; let n = !1; e?.addEventListener("click", () => { t && (n ? t.style.height = "0px" : t.style.height = t.scrollHeight + 20 + "px"), n = !n, e.textContent = e.textContent = s[s.indexOf(e.textContent ?? "") === 0 ? 1 : 0] });</script>

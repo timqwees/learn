@@ -1,0 +1,307 @@
+footer[data-astro-cid-sz7xmlte] {
+	position: relative;
+	overflow: hidden
+}
+
+footer[data-astro-cid-sz7xmlte]:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-bg-accent-first);
+	-webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+	mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: cover;
+	mask-size: cover
+}
+
+.burger-menu[data-astro-cid-barybgjo] {
+	cursor: pointer;
+	z-index: 9999
+}
+
+.burger-icon[data-astro-cid-barybgjo] {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 30px;
+	height: 30px
+}
+
+.burger-icon[data-astro-cid-barybgjo] div[data-astro-cid-barybgjo] {
+	width: 100%;
+	height: 2px;
+	background: var(--color-text-primary);
+	border-radius: 2px;
+	transition: all .2s ease-in-out
+}
+
+.burger-icon[data-astro-cid-barybgjo].open div[data-astro-cid-barybgjo]:nth-child(1) {
+	transform: translateY(10px) rotate(45deg)
+}
+
+.burger-icon[data-astro-cid-barybgjo].open div[data-astro-cid-barybgjo]:nth-child(2) {
+	transform: scale(0);
+	opacity: 0
+}
+
+.burger-icon[data-astro-cid-barybgjo].open div[data-astro-cid-barybgjo]:nth-child(3) {
+	transform: translateY(-10px) rotate(-45deg)
+}
+
+.theme-toggle[data-astro-cid-tego3hg3] {
+	cursor: pointer;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent
+}
+
+@keyframes astroFadeInOut {
+	0% {
+		opacity: 1
+	}
+
+	to {
+		opacity: 0
+	}
+}
+
+@keyframes astroFadeIn {
+	0% {
+		opacity: 0;
+		mix-blend-mode: plus-lighter
+	}
+
+	to {
+		opacity: 1;
+		mix-blend-mode: plus-lighter
+	}
+}
+
+@keyframes astroFadeOut {
+	0% {
+		opacity: 1;
+		mix-blend-mode: plus-lighter
+	}
+
+	to {
+		opacity: 0;
+		mix-blend-mode: plus-lighter
+	}
+}
+
+@keyframes astroSlideFromRight {
+	0% {
+		transform: translate(100%)
+	}
+}
+
+@keyframes astroSlideFromLeft {
+	0% {
+		transform: translate(-100%)
+	}
+}
+
+@keyframes astroSlideToRight {
+	to {
+		transform: translate(100%)
+	}
+}
+
+@keyframes astroSlideToLeft {
+	to {
+		transform: translate(-100%)
+	}
+}
+
+@media (prefers-reduced-motion) {
+
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important
+	}
+
+	[data-astro-transition-scope] {
+		animation: none !important
+	}
+}
+
+.header[data-astro-cid-3ef6ksr2] {
+	margin-bottom: 10px
+}
+
+.header-container[data-astro-cid-3ef6ksr2] {
+	transition: .3s ease-in-out;
+	padding: .625rem
+}
+
+.header-content-vertical[data-astro-cid-3ef6ksr2] {
+	transition: .3s ease-in-out
+}
+
+.header-nav[data-astro-cid-3ef6ksr2]>a[data-astro-cid-3ef6ksr2] {
+	border-radius: 10px;
+	padding: 1.25rem clamp(0rem, 1vw, 1.25rem)
+}
+
+.dropdown__list[data-astro-cid-3ef6ksr2] {
+	transition: .3s ease-in-out;
+	max-height: 0px;
+	width: 50%;
+	max-width: 650px;
+	padding: 15px;
+	margin: 0 auto;
+	pointer-events: none;
+	opacity: 0;
+	border-radius: 1rem
+}
+
+.dropdown__list[data-astro-cid-3ef6ksr2]>li[data-astro-cid-3ef6ksr2]>a[data-astro-cid-3ef6ksr2] {
+	transition: .3s ease-in-out;
+	scale: .8;
+	line-height: 0;
+	padding: 0
+}
+
+.dropdown__list[data-astro-cid-3ef6ksr2].open {
+	pointer-events: all;
+	max-height: 350px;
+	opacity: 1
+}
+
+.dropdown__list[data-astro-cid-3ef6ksr2].open>li[data-astro-cid-3ef6ksr2]>a[data-astro-cid-3ef6ksr2] {
+	scale: 1;
+	line-height: 1;
+	padding: 20px
+}
+
+#courses-link[data-astro-cid-3ef6ksr2] {
+	position: relative;
+	padding-right: 40px
+}
+
+#courses-link[data-astro-cid-3ef6ksr2]:after {
+	transition: .3s ease-in-out;
+	content: "";
+	position: absolute;
+	top: 35%;
+	right: 15px;
+	width: 21px;
+	height: 20px;
+	background: url(..//../assets/img/cheveron-down.svg) center no-repeat;
+	transform: rotate(-90deg)
+}
+
+#courses-link[data-astro-cid-3ef6ksr2].open:after {
+	transform: rotate(0)
+}
+
+.menu[data-astro-cid-3ef6ksr2] {
+	display: flex;
+	gap: clamp(0px, 2vw, 40px)
+}
+
+@media (max-width: 768px) {
+	.header-container[data-astro-cid-3ef6ksr2]:has(.menu.open) {
+		padding: 0;
+		z-index: 999;
+		background-color: transparent
+	}
+
+	.header[data-astro-cid-3ef6ksr2] {
+		transition: background-color .3s ease-in-out;
+		background-color: var(--color-bg-menu);
+		backdrop-filter: blur(40px)
+	}
+
+	.header[data-astro-cid-3ef6ksr2]:has(.menu.open) {
+		background-color: transparent;
+		backdrop-filter: none
+	}
+
+	.header-content-vertical[data-astro-cid-3ef6ksr2]:has(.menu.open) {
+		padding: .625rem
+	}
+
+	.header__link[data-astro-cid-3ef6ksr2] {
+		padding-left: 1.9375rem;
+		padding-right: 1.9375rem
+	}
+
+	.menu[data-astro-cid-3ef6ksr2] {
+		gap: 0;
+		padding: 0;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		flex-direction: column;
+		z-index: 10;
+		height: 0vh;
+		transition: .3s ease-in-out;
+		overflow: hidden;
+		background-color: var(--color-bg-menu);
+		backdrop-filter: blur(40px);
+		opacity: 0;
+		padding-top: calc(72px + 1.25rem);
+		transform: scale(.95)
+	}
+
+	.menu[data-astro-cid-3ef6ksr2]>a[data-astro-cid-3ef6ksr2] {
+		margin: 0 1.25rem
+	}
+
+	.menu[data-astro-cid-3ef6ksr2].open {
+		opacity: 1;
+		display: flex;
+		height: 100vh;
+		transform: scale(1)
+	}
+
+	.menu[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2] {
+		display: block
+	}
+
+	.dropdown__list-sm[data-astro-cid-3ef6ksr2] {
+		transition: .3s ease-in-out;
+		max-height: 0px;
+		width: 100%;
+		padding: 0;
+		pointer-events: none;
+		opacity: 0;
+		background-color: transparent
+	}
+
+	.dropdown__list-sm[data-astro-cid-3ef6ksr2] .dropdown__link[data-astro-cid-3ef6ksr2] {
+		transition: max-height .3s ease-in-out, padding .3s ease-in-out;
+		max-height: 0px;
+		padding: 0 20px;
+		overflow: hidden
+	}
+
+	.dropdown__list-sm[data-astro-cid-3ef6ksr2].open .dropdown__link[data-astro-cid-3ef6ksr2] {
+		max-height: 60px;
+		padding: 20px
+	}
+
+	.menu[data-astro-cid-3ef6ksr2].open .dropdown__list-sm[data-astro-cid-3ef6ksr2].open {
+		pointer-events: all;
+		max-height: 250px;
+		width: 100%;
+		opacity: 1;
+		background-color: var(--color-bg-menu-highlighted)
+	}
+
+	#useful-link[data-astro-cid-3ef6ksr2] {
+		order: 1
+	}
+
+	#retake-link[data-astro-cid-3ef6ksr2] {
+		order: 2
+	}
+}

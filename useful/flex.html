@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<script
+	type="module">const n = document.querySelector(".share-button"); n?.addEventListener("click", () => { const t = window.location.href, e = { title: document.title, url: t }; navigator.share(e) });</script>
+<html lang="ru" class="scroll-smooth scroll-pt-16">
+
+<head>
+	<script src="../themetoggle.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+	<meta name="description"
+		content="Сайт по веб-технологиям, созданный для учеников Московского Политехнического Университета.">
+	<script defer src="https://cloud.umami.is/script.js"
+		data-website-id="b6ab8e19-a315-491e-931e-41ec87b0957f"></script>
+	<title>Flexbox</title>
+	<link rel="stylesheet" href="../_astro/index.Csm0ttLF.css">
+	<style>
+		.section-heading[data-astro-cid-u4qoyrkz] {
+			position: relative;
+			overflow: hidden;
+			z-index: 1
+		}
+
+		.section-heading[data-astro-cid-u4qoyrkz]:before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-bg-accent-first);
+			-webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-size: cover;
+			mask-size: cover
+		}
+
+		html.dark .astro-code,
+		html.dark .astro-code span {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			color: var(--shiki-dark) !important;
+			background-color: var(--color-bg-code) !important
+		}
+
+		html.light .astro-code,
+		html.light .astro-code span {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			color: var(--shiki-light) !important;
+			background-color: var(--color-bg-code) !important
+		}
+
+		.md[data-astro-cid-gjtny2mx]>pre {
+			margin-bottom: 20px;
+			padding: 20px;
+			border-radius: 15px
+		}
+
+		.md[data-astro-cid-gjtny2mx] code {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			font-family: JetBrainsMono !important
+		}
+
+		.md[data-astro-cid-gjtny2mx] {
+			color: var(--color-text-inverted)
+		}
+
+		.md[data-astro-cid-gjtny2mx] h1 {
+			display: none
+		}
+
+		.md[data-astro-cid-gjtny2mx] em:first-of-type {
+			display: none
+		}
+
+		.md[data-astro-cid-gjtny2mx] h2,
+		h3 {
+			margin-bottom: 20px;
+			text-wrap: balance;
+			line-height: 1.1
+		}
+
+		.md[data-astro-cid-gjtny2mx] h2,
+		h3 {
+			margin-top: 40px
+		}
+
+		.md[data-astro-cid-gjtny2mx] :is(h2, h3):first-child {
+			margin-top: 0
+		}
+
+		.md[data-astro-cid-gjtny2mx] h2 {
+			font-size: 40px
+		}
+
+		.md[data-astro-cid-gjtny2mx] h3 {
+			font-size: 28px
+		}
+
+		@media (max-width: 1200px) {
+			.md[data-astro-cid-gjtny2mx] h3 {
+				font-size: 24px
+			}
+		}
+
+		@media (max-width: 768px) {
+			.md[data-astro-cid-gjtny2mx] h2 {
+				font-size: 28px
+			}
+
+			.md[data-astro-cid-gjtny2mx] h3 {
+				font-size: 24px
+			}
+		}
+
+		.md[data-astro-cid-gjtny2mx] p {
+			margin-bottom: 20px;
+			line-height: 1.2
+		}
+
+		.md[data-astro-cid-gjtny2mx] code:not(pre code) {
+			color: var(--color-bg-accent-second)
+		}
+
+		.md[data-astro-cid-gjtny2mx] ul,
+		ol {
+			margin-bottom: 20px;
+			padding-left: 40px
+		}
+
+		.md[data-astro-cid-gjtny2mx] ul {
+			list-style-type: disc
+		}
+
+		.md[data-astro-cid-gjtny2mx] ol {
+			list-style-type: decimal-leading-zero
+		}
+
+		.md[data-astro-cid-gjtny2mx] li {
+			margin-bottom: 10px;
+			font-size: 20px;
+			line-height: 1.2
+		}
+
+		@media (max-width: 1200px) {
+			.md[data-astro-cid-gjtny2mx] li {
+				font-size: 18px
+			}
+		}
+
+		@media (max-width: 768px) {
+			.md[data-astro-cid-gjtny2mx] li {
+				font-size: 16px
+			}
+		}
+
+		.md[data-astro-cid-gjtny2mx] a,
+		.md[data-astro-cid-gjtny2mx] code {
+			word-wrap: break-word
+		}
+
+		.md[data-astro-cid-gjtny2mx] a {
+			color: var(--color-text-tertiary);
+			text-decoration: underline
+		}
+
+		.md[data-astro-cid-gjtny2mx] img {
+			margin: 20px 0;
+			border-radius: 10px
+		}
+
+		.md[data-astro-cid-gjtny2mx] pre {
+			margin: 20px 0;
+			padding: 12px 0 12px 12px;
+			border-radius: 10px
+		}
+
+		.md[data-astro-cid-gjtny2mx] hr {
+			margin: 20px 0
+		}
+
+		.md[data-astro-cid-gjtny2mx]>*:last-child {
+			margin-bottom: 0
+		}
+	</style>
+	<link rel="stylesheet" href="../_astro/index.Cj0cvOTk.css">
+</head>
+
+<body class="flex flex-col min-h-screen transition bg-bg-screen text-text-primary font-texts">
+	<header class="header-container w-full fixed z-50" data-astro-cid-3ef6ksr2>
+		<div class="header md:bg-bg-menu text-text-primary flex-col gap-2 py-2.5 px-2.5 md:px-10 rounded-2xl box-border md:backdrop-blur-xl"
+			data-astro-cid-3ef6ksr2>
+			<div class="header-content-vertical w-full justify-between items-center mx-auto max-w-screen-xl flex"
+				data-astro-cid-3ef6ksr2> <a class="userActionsLink hidden md:block" onclick="window.location.href='/'"
+					href='/' data-astro-cid-3ef6ksr2> <img class="w-10 h-10"
+						src="https://cdn4.iconfinder.com/data/icons/finite-editor/16/code-1024.png" alt="logo"
+						data-astro-cid-3ef6ksr2 style="filter: invert();">
+				</a>
+				<nav class="header-nav menu" data-astro-cid-3ef6ksr2> <a
+						class="header__link cursor-pointer userActions font-titles md:font-texts "
+						data-astro-cid-3ef6ksr2 onclick="window.location.href='/'" href='/'> Главная
+					</a>
+				</nav>
+				<div class="inline-block md:hidden order--1 z-99" data-astro-cid-barybgjo>
+					<div class="burger-menu userActions p-2.75 rounded-[10px]" data-astro-cid-barybgjo>
+						<div class="burger-icon" data-astro-cid-barybgjo>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="theme-toggle userActions p-1.5 md:p-5 rounded-[10px] z-99"
+					id="theme-toggle" title="Переключение темы" aria-label="авто" aria-live="polite"
+					data-astro-cid-tego3hg3 data-astro-transition-persist="astro-k7lptchu-1"> <svg class="w-10 h-10"
+						viewBox="0 0 40 40" fill="none" aria-hidden="true" data-astro-cid-tego3hg3>
+						<defs data-astro-cid-tego3hg3>
+							<g id="dark-icon" data-astro-cid-tego3hg3>
+								<path
+									d="M20 26.5C23.5899 26.5 26.5 23.5899 26.5 20C26.5 16.4101 23.5899 13.5 20 13.5C16.4101 13.5 13.5 16.4101 13.5 20C13.5 23.5899 16.4101 26.5 20 26.5Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+								<path
+									d="M27.14 27.14L27.01 27.01M27.01 12.99L27.14 12.86L27.01 12.99ZM12.86 27.14L12.99 27.01L12.86 27.14ZM20 10.08V10V10.08ZM20 30V29.92V30ZM10.08 20H10H10.08ZM30 20H29.92H30ZM12.99 12.99L12.86 12.86L12.99 12.99Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+							</g>
+							<path id="light-icon"
+								d="M10.028 20.4222C10.3998 25.5709 14.912 29.7598 20.3122 29.9897C24.1223 30.1497 27.5297 28.4301 29.5742 25.7208C30.4209 24.6111 29.9665 23.8713 28.552 24.1212C27.8601 24.2412 27.1477 24.2912 26.4043 24.2612C21.3551 24.0612 17.2249 19.9723 17.2043 15.1435C17.1939 13.8439 17.4727 12.6142 17.9787 11.4945C18.5362 10.2548 17.8651 9.66493 16.5744 10.1948C12.4855 11.8644 9.6873 15.8533 10.028 20.4222Z"
+								stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+								stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+						</defs>
+						<use id="slot" data-astro-cid-tego3hg3></use>
+					</svg> </button>
+			</div>
+		</div>
+		<ul class="dropdown__list hidden md:flex flex-col justify-center gap-0 lg:gap-3 bg-bg-menu backdrop-blur-2xl"
+			data-astro-cid-3ef6ksr2>
+			<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+					class="dropdown__link flex w-full md:text-base lg:text-xl p-3 lg:p-5 userActionsLink"
+					href="labs/web-basics.html" data-astro-cid-3ef6ksr2> Основы веб-технологий </a> </li>
+		</ul>
+	</header>
+	<script
+		type="module">let n = !1; const u = document.querySelector(".dropdown__list"), t = document.querySelector("#courses-link"), c = document.querySelector("#web-course-site-link"), i = document.querySelector("#useful-link"), r = document.querySelector("#retake-link"), w = document.querySelector(".dropdown__list-sm"), d = (e, o) => { n = !n, o?.classList.toggle("open", n), e?.classList.toggle("open", n) }, s = e => { const o = e.id === "web-course-site-link" ? e.id.slice(0, -5) : "web-course-site/" + e.id.slice(0, -5); window.location.href = `/${o}/` }; let l = window.screen.width; window.addEventListener("resize", () => { l = window.screen.width }); const k = () => { if (l < 768) { d(t, w); return } d(t, u) }; t?.addEventListener("click", k); c?.addEventListener("click", () => s(c)); i?.addEventListener("click", () => s(i)); r?.addEventListener("click", () => s(r));</script>
+	<main class="flex-grow">
+		<section
+			class="section-heading bg-bg-primary rounded-b-[30px] md:rounded-b-[60px] pt-42.5 pb-25 mb-20 relative flex justify-center items-end px-5"
+			data-astro-cid-u4qoyrkz>
+			<div class="hero-container flex flex-col justify-end h-full text-center items-center"
+				data-astro-cid-u4qoyrkz> <button onclick="window.location.href='/web-course-site/useful/'"
+					class="flex gap-2 font-bold font-titles text-[20px] items-center mb-5" data-astro-cid-u4qoyrkz><img
+						src="..//../assets/img/chevron-right.svg" alt="" class="mb-1" data-astro-cid-u4qoyrkz><span
+						data-astro-cid-u4qoyrkz>Назад</span></button>
+				<h1 class="line-height-[1.1] max-w-[760px]" data-astro-cid-u4qoyrkz> Flexbox </h1>
+			</div>
+		</section>
+		<main class="mx-auto pb-14" data-astro-cid-gjtny2mx>
+			<div class="block"> <button type="button" id="back-to-top-btn" aria-label="Кнопка наверх"
+					class="fixed bottom-5 right-5 hidden z-999 animate-fade-in animate-duration-300" tabindex="1"><svg
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+						class="w-16 h-16 fill-bg-accent_second">
+						<path fill-rule="evenodd"
+							d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm.53 5.47a.75.75 0 00-1.06 0l-3 3a.75.75 0 101.06 1.06l1.72-1.72v5.69a.75.75 0 001.5 0v-5.69l1.72 1.72a.75.75 0 101.06-1.06l-3-3z"
+							clip-rule="evenodd"></path>
+					</svg> </button> </div>
+			<script
+				type="module">if (document.contains(document.getElementById("back-to-top-btn"))) { const t = document.getElementById("back-to-top-btn"); t && (window.addEventListener("scroll", () => { window.scrollY > 200 ? (t.classList.add("block"), t.classList.remove("hidden")) : (t.classList.add("hidden"), t.classList.remove("block")) }), t.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }) })) }</script>
+			<p id="test" data-astro-cid-gjtny2mx></p>
+			<div class="box-content max-w-[700px] m-auto px-3.5" data-astro-cid-gjtny2mx>
+				<article class="md" data-astro-cid-gjtny2mx>
+					<h1 id="flexbox-знакомство">Flexbox. Знакомство</h1>
+					<p><em>Автор: Бастун Андрей</em></p>
+					<h2 id="включение-flex">Включение Flex</h2>
+					<p>Flexbox – CSS механизм, который позволяет контролировать размер дочерних элементов и их
+						выравнивание по двум осям. Чтобы разаботал flexbox, нужно задать элементу свойство
+						<code>display: flex;</code> или <code>display: inline-flex;</code>.
+					</p>
+					<ol>
+						<li>Элемент с <code>display: flex;</code> или <code>display: inline-flex;</code> превращается в
+							“flex-контейнер”.</li>
+						<li>Все дочерние элементы становятся “flex-элементами” и начинают располагаться по новым
+							правилам.</li>
+					</ol>
+					<h2 id="главная-и-поперечные-оси">Главная и поперечные оси</h2>
+					<p>В обычном потоке документа блочные элементы располагаются сверху вниз, а текст - слева направо.
+						Это работает для большинства видов письменностей, в частности для латиницы и кириллицы. Во флекс
+						модели элементы выстраиваются и выравниваются вдоль осей и их направление можно изменить.</p>
+					<p>Главной осью flex-контейнера является направление, вдоль которого располагаются дочерние элементы
+						- от начала оси к концу. Поперечной осью называется направление перпендикулярное главной оси.
+					</p>
+					<p><img src="../flex/image1.png" alt="Главная ось"></p>
+					<p>По умолчанию главная ось направлена слева направо, но ее можно развернуть при помощи свойства
+						<code>flex-direction: row / column / row-reverse / column-reverse</code>. Поперечная ось всегда
+						перпендикулярна главной и поворачивается вместе с ней.
+					</p>
+					<p>На рисунках красным указана главная ось, синим - поперечная, а точками начало осей:</p>
+					<ul>
+						<li>
+							<p><strong>row</strong> (default) – слева направо
+								<img src="../flex/image2.png" alt="row">
+							</p>
+						</li>
+						<li>
+							<p><strong>column</strong> – сверху вниз
+								<img src="../flex/image3.png" alt="column">
+							</p>
+						</li>
+						<li>
+							<p><strong>row-reverse</strong> – справа налево
+								<img src="../flex/image4.png" alt="row-reverse">
+							</p>
+						</li>
+						<li>
+							<p><strong>column-reverse</strong> – снизу вверх
+								<img src="../flex/image5.png" alt="column-reverse">
+							</p>
+						</li>
+					</ul>
+					<h2 id="распределение-flex-элементов">Распределение flex-элементов</h2>
+					<h3 id="выравнивание-по-главной-оси">Выравнивание по главной оси</h3>
+					<p>Выровнять элементы вдоль главной оси можно при помощи свойства
+						<code>justify-content: flex-start / flex-end / center / space-between / space-around / space-evenly</code>.
+					</p>
+					<ul>
+						<li>
+							<p><strong>flex-start</strong> (default) – у начала главной оси.
+								<img src="../flex/image6.png" alt="flex-start">
+							</p>
+						</li>
+						<li>
+							<p><strong>flex-end</strong> – в конце главной оси.
+								<img src="../flex/image7.png" alt="flex-end">
+							</p>
+						</li>
+						<li>
+							<p><strong>center</strong> – в центре главной оси.
+								<img src="../flex/image8.png" alt="center">
+							</p>
+						</li>
+						<li>
+							<p><strong>space-between</strong> – расстояния между соседними элементами одинаковые, а
+								между элементами и краями flex-контейнера отступов нет.
+								<img src="../flex/image9.png" alt="space-between">
+							</p>
+						</li>
+						<li>
+							<p><strong>space-around</strong> – расстояния между соседними элементами одинаковое, а между
+								элементами и краями flex-контейнера отступ равный половине расстояния между соседними
+								элементами.
+								<img src="../flex/image10.png" alt="space-around">
+							</p>
+						</li>
+						<li>
+							<p><strong>space-evenly</strong> – расстояния между элементами и краями flex-контейнера
+								одинаковые.</p>
+						</li>
+					</ul>
+					<p>Распределение элементов по главной оси задается для всего flex-контейнера и на все flex-элементы
+						действует одинаково, задать какому-то flex-элементу отличное от других распределение по главной
+						оси нельзя.</p>
+					<h3 id="выравнивание-вдоль-поперечной-оси">Выравнивание вдоль поперечной оси</h3>
+					<p>Выровнять элементы вдоль поперечной оси можно при помощи свойства
+						<code>align-items: stretch / flex-start / flex-end / center / baseline</code>.
+					</p>
+					<ul>
+						<li>
+							<p><strong>stretch</strong> (default) – элементы растягиваются на всю высоту/ширину
+								flex-контейнера в зависимости от направления поперечной оси.
+								<img src="../flex/image11.png" alt="stretch">
+							</p>
+						</li>
+						<li>
+							<p><strong>flex-start</strong> – у начала поперечной оси.
+								<img src="../flex/image12.png" alt="flex-start">
+							</p>
+						</li>
+						<li>
+							<p><strong>flex-end</strong> – в конце поперечной оси.
+								<img src="../flex/image13.png" alt="flex-end">
+							</p>
+						</li>
+						<li>
+							<p><strong>center</strong> – по центру поперечной оси.
+								<img src="../flex/image14.png" alt="center">
+							</p>
+						</li>
+						<li>
+							<p><strong>baseline</strong> – по базовой линии текста внутри них.</p>
+						</li>
+					</ul>
+					<p>Поперечное выравнивание можно задать каждому элементу отдельно, для этого используется свойство
+						<code>align-self</code>, которое задается для самих flex-элементов, а не контейнера. У свойства
+						<code>align-self</code> те же самые значения, что и у <code>align-items</code>.
+					</p>
+					<h3 id="перенос-flex-элементов">Перенос flex-элементов</h3>
+					<p>Если flex-элементов в контейнере станет больше, чем может уместиться в один ряд/колонку, то:</p>
+					<ul>
+						<li>Они будут сжиматься до минимально возможной ширины.</li>
+						<li>Даже если им задать ширину, механизм flexbox изначальоно может ее уменьшить, но это
+							поведение можно изменить.</li>
+						<li>Если они перестанут помещаться в контейнер и после уменьшения, то выйдут за его пределы, но
+							продолжат располагаться в один ряд и произойдет переполнение.</li>
+					</ul>
+					<p>Чтобы этого не происходило, нужно воспользоваться свойством
+						<code>flex-wrap: nowrap / wrap / wrap-reverse</code>.
+					</p>
+					<ul>
+						<li><strong>nowrap</strong> (default) – перенос отключен.</li>
+						<li><strong>wrap</strong> – разрешает перенос, ряды/колонки элементов расположены вдоль
+							поперечной оси, начиная от ее начала.</li>
+						<li><strong>wrap-reverse</strong> – разрешает перенос, ряды/колонки элементов расположены вдоль
+							поперечной оси, начиная от ее конца.
+							<img src="../flex/image15.png" alt="wrap">
+						</li>
+					</ul>
+					<h2 id="совмещенный-синтаксис-flex-direction-и-flex-wrap">Совмещенный синтаксис flex-direction и
+						flex-wrap</h2>
+					<p>При помощи свойства <code>flex-flow</code> можно уменьшить количество написанного кода, он в себе
+						совмещает <code>flex-direction</code> и <code>flex-wrap</code>.</p>
+					<p>И обладает следующим синтаксисом:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">flex-flow</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: &#x3C;’</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">flex-direction</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">’</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> &#x3C;’</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">flex-wrap</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">’</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">;</span></span></code></pre>
+					<p>Пример:</p>
+					<pre class="astro-code astro-code-themes catppuccin-latte catppuccin-mocha"
+						style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
+						tabindex="0"
+						data-language="css"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">flex-flow</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: column nowrap;</span></span></code></pre>
+					<h3 id="выравнивание-рядовколонок-flex-контейнера">Выравнивание рядов/колонок flex-контейнера</h3>
+					<p>Свойство <code>align-content</code> управляет выравниванием рядов/колонок флекс-элементов вдоль
+						поперечной оси. У него и свойства <code>justify-content</code> очень схожие значения:</p>
+					<ul>
+						<li>
+							<p><strong>stretch</strong> (default) – растягивает ряды флекс-элементов, при этом
+								оставшееся свободное место между ними делится поровну. Отображение строк при этом
+								зависит от значения <code>align-items</code>:</p>
+							<ol>
+								<li>Если у <code>align-items</code> задано значение <code>stretch</code>, то элементы в
+									строках растягиваются на всю высоту своей стоки.</li>
+								<li>Если значение отлично от <code>stretch</code>, то элементы ужимаются под своё
+									содержимое и выравниваются в строках в зависимости от значения
+									<code>align-items</code>.
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p><strong>flex-start</strong> – в начале поперечной оси.
+								<img src="../flex/image16.png" alt="flex-start">
+							</p>
+						</li>
+						<li>
+							<p><strong>flex-end</strong> – в конце поперечной оси.
+								<img src="../flex/image17.png" alt="flex-end">
+							</p>
+						</li>
+						<li>
+							<p><strong>center</strong> – в середине поперечной оси так, что отступов между соседними
+								рядами нет, а расстояния до краев flex-контейнера одинаковые.
+								<img src="../flex/image18.png" alt="center">
+							</p>
+						</li>
+						<li>
+							<p><strong>space-between</strong> – равномерно распределяет ряды flex-элементов вдоль
+								поперечной оси, расстояния между рядами одинаковые, отступов от краев flex-контейнера
+								нет.
+								<img src="../flex/image19.png" alt="space-between">
+							</p>
+						</li>
+						<li>
+							<p><strong>space-around</strong> – равномерно распределяет ряды flex-элементов вдоль
+								поперечной оси, расстояния между соседними рядами одинаковые, отступы у краев равны
+								половине расстояния между соседними рядами.
+								<img src="../flex/image20.png" alt="space-around">
+							</p>
+						</li>
+						<li>
+							<p><strong>space-evenly</strong> – равномерно распределяет ряды вдоль поперечной оси,
+								расстояния от края и между соседними элементами одинаковые.
+								<img src="../flex/image21.png" alt="space-evenly">
+							</p>
+						</li>
+					</ul>
+					<p>Свойство <code>align-content</code> «перекрывает» заданное значение <code>align-items</code>,
+						которое управляет выравниванием flex-элементов вдоль поперечной оси. Это происходит в любом
+						случае.</p>
+					<h3 id="расширение-и-сжатие-flex-элементов">Расширение и сжатие flex-элементов</h3>
+					<p>Свойство <code>flex-grow</code> определяет, насколько элемент может «расти» относительно других
+						flex-элементов внутри контейнера.
+						<img src="../flex/image22.png" alt="flex-grow">
+					</p>
+					<p>Значение определяет пропорцию роста элемента. Если у нескольких элементов установлены разные
+						значения <code>flex-grow</code>, то свободное пространство будет распределено пропорционально
+						этим значениям.</p>
+					<p>Свойство <code>flex-shrink</code> определяет, насколько элемент может сжиматься по сравнению с
+						другими элементами в контейнере, если пространство ограничено.
+						<img src="../flex/image23.png" alt="flex-shrink">
+					</p>
+					<h3 id="базовый-размер-flex-элемента">Базовый размер flex-элемента</h3>
+					<p>Свойство <code>flex-basis</code> задает базовый размер флекс элемента по главной оси. Это
+						свойство определяет размер контент-бокса, если не задано иначе через <code>box-sizing</code>.
+						<code>flex-basis</code> имеет следующие значения:
+					</p>
+					<ul>
+						<li>
+							<p><code>&#x3C;’width’></code> - задает базовую ширину flex-элемента.
+								<img src="../flex/image24.png" alt="width">
+							</p>
+						</li>
+						<li>
+							<p><strong>content</strong> - автоматически задаёт размер на основе содержимого
+								flex-элемента.
+								<img src="../flex/image25.png" alt="content">
+							</p>
+						</li>
+						<li>
+							<p><strong>auto</strong> – смотрит на ширину/высоту flex-элемента.
+								<img src="../flex/image26.png" alt="auto">
+							</p>
+						</li>
+					</ul>
+					<h3 id="порядковый-номер-flex-элемента">Порядковый номер flex-элемента</h3>
+					<p>С изменением порядка отображения без изменения html, необходимо быть крайне внимательным, так как
+						это может снизить доступность вашей страницы.</p>
+					<p>Порядок следования flex-элементов в потоке можно изменить при помощи свойства <code>order</code>
+						и порядкового номера flex-элемента, не меняя при этом HTML-код. По умолчанию порядковый номер
+						flex-элементов равен 0, а сортировка элементов производится по возрастанию номера. Порядковый
+						номер задается целым числом, положительным или отрицательным.</p>
+				</article>
+				<address class="flex items-center justify-between gap-4 mt-10" data-astro-cid-gjtny2mx>
+					<div class="flex items-center gap-2.5" data-astro-cid-gjtny2mx>
+						<div class="aspect-square w-12 flex rounded-full overflow-hidden bg-bg-tertiary"
+							data-astro-cid-gjtny2mx> <img src="..//../assets/img/cat-glasses.svg"
+								class="w-full h-full object-contain object-bottom" alt="Бастун Андрей"
+								data-astro-cid-gjtny2mx> </div>
+						<div class="flex flex-col gap-1" data-astro-cid-gjtny2mx>
+							<p class="text-xs xl:text-base text-text-inverted !leading-[1.2] not-italic"
+								data-astro-cid-gjtny2mx> Бастун Андрей </p> <time
+								class="text-xs xl:text-base text-text-tertiary leading-[1.2] xl:leading-[1.2] not-italic"
+								id="last-edit-date" data-astro-cid-gjtny2mx></time>
+						</div>
+					</div>
+					<div class="aspect-square w-12 flex items-center justify-center border rounded-full border-bg-accent_second text-bg-accent_second hover:border-bg-hover active:border-bg-active focus:border-bg-active hover:text-bg-hover active:text-bg-active focus:text-bg-active cursor-pointer share-button"
+						data-astro-cid-gjtny2mx> <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M16.2385 15.5943C15.4946 15.131 14.5639 15.0856 13.7785 15.4743L10.7785 12.4743C11.0007 11.9676 11.0499 11.4018 10.9185 10.8643C10.8962 10.7895 10.8694 10.716 10.8385 10.6443L13.7785 7.70433C14.8794 8.24712 16.2117 7.90299 16.912 6.89498C17.6122 5.88697 17.4698 4.51834 16.5771 3.67607C15.6843 2.83381 14.3096 2.77132 13.3441 3.52909C12.3786 4.28687 12.1126 5.63694 12.7185 6.70433L9.9485 9.43433C9.00536 8.76394 7.72541 8.82839 6.85437 9.59013C5.98333 10.3519 5.74886 11.6118 6.28756 12.6359C6.82626 13.66 7.99733 14.1806 9.1185 13.8943C9.35153 13.8259 9.57372 13.7249 9.7785 13.5943L12.7785 16.5943C12.1624 17.7989 12.6209 19.2751 13.811 19.9186C15.0012 20.5621 16.4875 20.1375 17.158 18.9623C17.8286 17.7871 17.438 16.2916 16.2785 15.5943H16.2385Z"
+								fill="currentColor"></path>
+						</svg> </div>
+				</address>
+			</div>
+		</main>
+	</main>
+	<footer class="bg-bg-primary z-99 rounded-t-[30px] sm:rounded-t-[60px] px-10 py-14" data-astro-cid-sz7xmlte>
+		<div class="top-content flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between max-w-screen-xl mx-auto mb-20 items-center sm:items-start"
+			data-astro-cid-sz7xmlte> <img class="mb-auto" width="200px" src="/../assets/img/logo-full.svg"
+				alt="Logo Web-Studio" style="filter: invert()" data-astro-cid-sz7xmlte>
+			<div class="text-center sm:text-start" data-astro-cid-sz7xmlte>
+				<h3 class="mb-2" data-astro-cid-sz7xmlte>Контакты</h3>
+				<ul class="flex flex-col items-center sm:items-start sm:flex-row gap-10 sm:gap-19"
+					data-astro-cid-sz7xmlte>
+					<li class="flex flex-col gap-1 sm:max-w-[205px]" data-astro-cid-sz7xmlte>
+						<p class="line-height-none" data-astro-cid-sz7xmlte>Нерсисян Артем Арменович</p>
+						<p class="text-sm mb-1" data-astro-cid-sz7xmlte>Fullstack-разработчик</p>
+						<div class="flex justify-center sm:justify-start gap-1" data-astro-cid-sz7xmlte> <img
+								src="/../assets/img/tg-logo.svg" alt="telegram-logo" data-astro-cid-sz7xmlte> <a
+								class="text-sm" href="https://t.me/slavaver" data-astro-cid-sz7xmlte>
+								@timqwees </a> </div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="flex flex-col text-center sm:text-start sm:flex-row justify-between w-full align-bottom max-w-screen-xl mx-auto"
+			data-astro-cid-sz7xmlte>
+			<p class="text-center text-[16px] mt-auto" data-astro-cid-sz7xmlte>
+				&copy; 2025 TimQwees
+			</p>
+			<div data-astro-cid-sz7xmlte>
+				<p class="text-[16px]" data-astro-cid-sz7xmlte>
+					Разработка <a class="text-[16px]" href="https://t.me/qalqaa" data-astro-cid-sz7xmlte>@timqwees</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
+<script
+	type="module">const r = () => { const t = window.location.href.match(/([^\/]+)\/?$/); return t ? t[1] : null }, a = t => fetch(`https://api.github.com/repos/slavaver/web-course-site/commits?path=/src/useful/${t}.md&per_page=1`).then(e => e.json()).then(e => e.length === 0 ? null : new Date(e[0].commit.author.date).toLocaleDateString("ru-RU", { day: "numeric", month: "numeric", year: "numeric" })).catch(() => null), c = document.getElementById("last-edit-date"), n = r(); n && a(n).then(t => { t && (c.innerText = `Последнее обновление: ${t}`) });</script>

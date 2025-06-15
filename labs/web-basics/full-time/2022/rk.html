@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth scroll-pt-16">
+
+<head>
+	<script src="../../../../themetoggle.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
+	<meta name="description"
+		content="Сайт по веб-технологиям, созданный для учеников Московского Политехнического Университета.">
+	<script defer src="https://cloud.umami.is/script.js"
+		data-website-id="b6ab8e19-a315-491e-931e-41ec87b0957f"></script>
+	<title>Рубежный контроль</title>
+	<link rel="stylesheet" href="../../../../_astro/index.Csm0ttLF.css">
+	<style>
+		.section-heading[data-astro-cid-u4qoyrkz] {
+			position: relative;
+			overflow: hidden;
+			z-index: 1
+		}
+
+		.section-heading[data-astro-cid-u4qoyrkz]:before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-bg-accent-first);
+			-webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 728" fill="none"%3E%3Cpath d="M-384.828 550.33C-279.518 431.882 -29.173 211.72 129.724 278.664C328.344 362.345 -156.414 623.403 -2.48331 780.746C176.815 964.017 967.034 -77.2714 1180.55 48.249C1394.07 173.769 1062.62 452.507 1180.55 550.33C1274.9 628.589 1460.28 401.827 1541.17 278.664" stroke="black" stroke-width="150"/%3E%3C/svg%3E');
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-size: cover;
+			mask-size: cover
+		}
+
+		.pagination-btn[data-astro-cid-tkpqjl6k]>svg[data-astro-cid-tkpqjl6k]>path[data-astro-cid-tkpqjl6k] {
+			transition: .2s ease-in-out
+		}
+
+		.pagination-btn[data-astro-cid-tkpqjl6k]:hover>svg[data-astro-cid-tkpqjl6k]>path[data-astro-cid-tkpqjl6k] {
+			stroke: var(--color-text-primary)
+		}
+
+		html.dark .astro-code,
+		html.dark .astro-code span {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			color: var(--shiki-dark) !important;
+			background-color: var(--color-bg-code) !important
+		}
+
+		html.light .astro-code,
+		html.light .astro-code span {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			color: var(--shiki-light) !important;
+			background-color: var(--color-bg-code) !important
+		}
+
+		.md[data-astro-cid-doiaixo3]>pre {
+			margin-bottom: 20px;
+			padding: 20px;
+			border-radius: 15px
+		}
+
+		.md[data-astro-cid-doiaixo3] code {
+			transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+			transition-duration: .15s;
+			font-family: JetBrainsMono !important
+		}
+
+		.md[data-astro-cid-doiaixo3] code:not(pre code) {
+			color: var(--color-bg-accent-second)
+		}
+
+		.md[data-astro-cid-doiaixo3]>table {
+			width: 100%;
+			border-radius: 10px;
+			overflow: hidden;
+			margin-bottom: 20px
+		}
+
+		.md[data-astro-cid-doiaixo3]>h1 {
+			display: none
+		}
+
+		.md[data-astro-cid-doiaixo3]>table>thead {
+			background-color: var(--color-bg-tertiary)
+		}
+
+		.md[data-astro-cid-doiaixo3]>table>thead>tr>th {
+			padding: 10px clamp(0px, .5vw, 20px);
+			color: var(--color-text-inverted);
+			font-family: NextArt;
+			font-size: 16px;
+			font-weight: 600;
+			text-align: left
+		}
+
+		.md[data-astro-cid-doiaixo3]>table>thead>tr>th:first-of-type {
+			padding: 10px clamp(0px, .5vw, 20px) 10px clamp(10px, .5vw, 20px)
+		}
+
+		.md[data-astro-cid-doiaixo3]>table>tbody>tr>td {
+			padding: 10px clamp(0px, .5vw, 20px);
+			font-size: 16px;
+			text-align: left
+		}
+
+		.md[data-astro-cid-doiaixo3]>table>tbody>tr>td:first-of-type {
+			padding: 10px clamp(0px, .5vw, 20px) 10px clamp(10px, .5vw, 20px)
+		}
+
+		.md[data-astro-cid-doiaixo3]>table>tbody>tr:nth-child(2n) {
+			background-color: var(--color-bg-code)
+		}
+
+		.md[data-astro-cid-doiaixo3]>div.warning {
+			border: 1px solid #ff5050;
+			color: #ff5050;
+			background-color: #ff82821a;
+			font-size: 20px;
+			margin-bottom: 20px;
+			border-radius: 10px;
+			padding: 20px
+		}
+
+		.side[data-astro-cid-doiaixo3]>h2 {
+			font-size: 28px;
+			font-weight: 600
+		}
+
+		.md[data-astro-cid-doiaixo3] p {
+			margin-bottom: 20px;
+			line-height: 1.2
+		}
+
+		.md[data-astro-cid-doiaixo3] ul,
+		ol {
+			margin-bottom: 20px;
+			padding-left: 40px
+		}
+
+		.md[data-astro-cid-doiaixo3] ul {
+			list-style-type: disc
+		}
+
+		.md[data-astro-cid-doiaixo3] ol {
+			list-style-type: decimal-leading-zero
+		}
+
+		.md[data-astro-cid-doiaixo3] li {
+			margin-bottom: 10px;
+			font-size: 20px;
+			line-height: 1.2
+		}
+
+		.side[data-astro-cid-doiaixo3] a {
+			word-wrap: break-word;
+			text-decoration: underline
+		}
+
+		.md[data-astro-cid-doiaixo3] a:not(.mentors) {
+			color: var(--color-text-tertiary);
+			text-decoration: underline
+		}
+
+		.md[data-astro-cid-doiaixo3] img,
+		.md[data-astro-cid-doiaixo3] svg {
+			margin: 20px 0;
+			border-radius: 10px
+		}
+
+		.md[data-astro-cid-doiaixo3] hr {
+			margin: 20px 0
+		}
+
+		.md[data-astro-cid-doiaixo3]>*:last-child {
+			margin-bottom: 0
+		}
+
+		.md[data-astro-cid-doiaixo3] h2,
+		h3 {
+			margin-bottom: 20px;
+			text-wrap: balance;
+			line-height: 1.1
+		}
+
+		.md[data-astro-cid-doiaixo3] h2,
+		h3 {
+			margin-top: 40px
+		}
+
+		.md[data-astro-cid-doiaixo3] :is(h2, h3):first-child {
+			margin-top: 0
+		}
+
+		.md[data-astro-cid-doiaixo3] h2 {
+			font-size: 40px
+		}
+
+		.md[data-astro-cid-doiaixo3] h3 {
+			font-size: 28px
+		}
+
+		@media (max-width: 1200px) {
+			.md[data-astro-cid-doiaixo3] h3 {
+				font-size: 24px
+			}
+
+			.md[data-astro-cid-doiaixo3] li {
+				font-size: 18px
+			}
+		}
+
+		@media (max-width: 768px) {
+			.md[data-astro-cid-doiaixo3] h2 {
+				font-size: 28px
+			}
+
+			.md[data-astro-cid-doiaixo3] h3 {
+				font-size: 24px
+			}
+
+			.md[data-astro-cid-doiaixo3] li {
+				font-size: 16px
+			}
+
+			.md[data-astro-cid-doiaixo3]>table>thead>tr>th {
+				font-size: clamp(10px, 2vw, 14px)
+			}
+
+			.md[data-astro-cid-doiaixo3]>table>tbody>tr>td {
+				font-size: clamp(10px, 2vw, 14px)
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="../../../../_astro/index.Cj0cvOTk.css">
+	<style>
+		.link-card-item-goto-icon[data-astro-cid-thpmvig2] {
+			background: url(../../../..//../assets/img/goto.svg) no-repeat center;
+			width: 50px;
+			height: 50px;
+			border: 1.5px solid var(--color-border);
+			border-radius: 100%;
+			color: var(--color-border)
+		}
+	</style>
+</head>
+
+<body class="flex flex-col min-h-screen transition bg-bg-screen text-text-primary font-texts">
+	<header class="header-container w-full fixed z-50" data-astro-cid-3ef6ksr2>
+		<div class="header md:bg-bg-menu text-text-primary flex-col gap-2 py-2.5 px-2.5 md:px-10 rounded-2xl box-border md:backdrop-blur-xl"
+			data-astro-cid-3ef6ksr2>
+			<div class="header-content-vertical w-full justify-between items-center mx-auto max-w-screen-xl flex"
+				data-astro-cid-3ef6ksr2> <a class="userActionsLink hidden md:block" href="../../../../index.html"
+					data-astro-cid-3ef6ksr2> <img class="w-10 h-10" src="../../../..//../assets/img/logo.svg" alt="logo"
+						data-astro-cid-3ef6ksr2> </a>
+				<nav class="header-nav menu" data-astro-cid-3ef6ksr2> <a
+						class="header__link cursor-pointer userActions font-titles md:font-texts "
+						id="web-course-site-link" data-astro-cid-3ef6ksr2> Главная </a><a
+						class="header__link cursor-pointer userActions font-titles md:font-texts " id="courses-link"
+						data-astro-cid-3ef6ksr2> Курсы </a><a
+						class="header__link cursor-pointer userActions font-titles md:font-texts " id="useful-link"
+						data-astro-cid-3ef6ksr2> База знаний </a><a
+						class="header__link cursor-pointer userActions font-titles md:font-texts " id="retake-link"
+						data-astro-cid-3ef6ksr2> Пересдачи </a>
+					<ul class="dropdown__list-sm flex flex-col md:hidden justify-center gap-0" data-astro-cid-3ef6ksr2>
+						<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+								class="dropdown__link text-[16px] px-7 py-5  userActionsLink"
+								href="../../../web-basics.html" data-astro-cid-3ef6ksr2> Основы веб-технологий </a>
+						</li>
+						<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+								class="dropdown__link text-[16px] px-7 py-5  userActionsLink"
+								href="../../../client-side-basics.html" data-astro-cid-3ef6ksr2> Основы веб-разработки
+								на клиенте </a> </li>
+						<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+								class="dropdown__link text-[16px] px-7 py-5  userActionsLink"
+								href="../../../client-side.html" data-astro-cid-3ef6ksr2> Веб-разработка на клиенте </a>
+						</li>
+					</ul>
+				</nav>
+				<div class="inline-block md:hidden order--1 z-99" data-astro-cid-barybgjo>
+					<div class="burger-menu userActions p-2.75 rounded-[10px]" data-astro-cid-barybgjo>
+						<div class="burger-icon" data-astro-cid-barybgjo>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+							<div data-astro-cid-barybgjo></div>
+						</div>
+					</div>
+				</div>
+				<script
+					type="module">let e = !1; const t = document.querySelector(".menu"), n = document.querySelector(".burger-menu"), o = document.querySelector(".burger-icon"), c = () => { e = !e, t?.classList.toggle("open", e), o?.classList.toggle("open", e) }; n && n.addEventListener("click", c);</script>
+				<button type="button" class="theme-toggle userActions p-1.5 md:p-5 rounded-[10px] z-99"
+					id="theme-toggle" title="Переключение темы" aria-label="авто" aria-live="polite"
+					data-astro-cid-tego3hg3 data-astro-transition-persist="astro-k7lptchu-1"> <svg class="w-10 h-10"
+						viewBox="0 0 40 40" fill="none" aria-hidden="true" data-astro-cid-tego3hg3>
+						<defs data-astro-cid-tego3hg3>
+							<g id="dark-icon" data-astro-cid-tego3hg3>
+								<path
+									d="M20 26.5C23.5899 26.5 26.5 23.5899 26.5 20C26.5 16.4101 23.5899 13.5 20 13.5C16.4101 13.5 13.5 16.4101 13.5 20C13.5 23.5899 16.4101 26.5 20 26.5Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+								<path
+									d="M27.14 27.14L27.01 27.01M27.01 12.99L27.14 12.86L27.01 12.99ZM12.86 27.14L12.99 27.01L12.86 27.14ZM20 10.08V10V10.08ZM20 30V29.92V30ZM10.08 20H10H10.08ZM30 20H29.92H30ZM12.99 12.99L12.86 12.86L12.99 12.99Z"
+									stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+									stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+							</g>
+							<path id="light-icon"
+								d="M10.028 20.4222C10.3998 25.5709 14.912 29.7598 20.3122 29.9897C24.1223 30.1497 27.5297 28.4301 29.5742 25.7208C30.4209 24.6111 29.9665 23.8713 28.552 24.1212C27.8601 24.2412 27.1477 24.2912 26.4043 24.2612C21.3551 24.0612 17.2249 19.9723 17.2043 15.1435C17.1939 13.8439 17.4727 12.6142 17.9787 11.4945C18.5362 10.2548 17.8651 9.66493 16.5744 10.1948C12.4855 11.8644 9.6873 15.8533 10.028 20.4222Z"
+								stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"
+								stroke-linejoin="round" data-astro-cid-tego3hg3></path>
+						</defs>
+						<use id="slot" data-astro-cid-tego3hg3></use>
+					</svg> </button>
+			</div>
+		</div>
+		<ul class="dropdown__list hidden md:flex flex-col justify-center gap-0 lg:gap-3 bg-bg-menu backdrop-blur-2xl"
+			data-astro-cid-3ef6ksr2>
+			<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+					class="dropdown__link flex w-full md:text-base lg:text-xl p-3 lg:p-5 userActionsLink"
+					href="../../../web-basics.html" data-astro-cid-3ef6ksr2> Основы веб-технологий </a> </li>
+			<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+					class="dropdown__link flex w-full md:text-base lg:text-xl p-3 lg:p-5 userActionsLink"
+					href="../../../client-side-basics.html" data-astro-cid-3ef6ksr2> Основы веб-разработки на клиенте
+				</a> </li>
+			<li class="dropdown__item" data-astro-cid-3ef6ksr2> <a
+					class="dropdown__link flex w-full md:text-base lg:text-xl p-3 lg:p-5 userActionsLink"
+					href="../../../client-side.html" data-astro-cid-3ef6ksr2> Веб-разработка на клиенте </a> </li>
+		</ul>
+	</header>
+	<script
+		type="module">let n = !1; const u = document.querySelector(".dropdown__list"), t = document.querySelector("#courses-link"), c = document.querySelector("#web-course-site-link"), i = document.querySelector("#useful-link"), r = document.querySelector("#retake-link"), w = document.querySelector(".dropdown__list-sm"), d = (e, o) => { n = !n, o?.classList.toggle("open", n), e?.classList.toggle("open", n) }, s = e => { const o = e.id === "web-course-site-link" ? e.id.slice(0, -5) : "web-course-site/" + e.id.slice(0, -5); window.location.href = `/${o}/` }; let l = window.screen.width; window.addEventListener("resize", () => { l = window.screen.width }); const k = () => { if (l < 768) { d(t, w); return } d(t, u) }; t?.addEventListener("click", k); c?.addEventListener("click", () => s(c)); i?.addEventListener("click", () => s(i)); r?.addEventListener("click", () => s(r));</script>
+	<main class="flex-grow">
+		<div class="block"> <button type="button" id="back-to-top-btn" aria-label="Кнопка наверх"
+				class="fixed bottom-5 right-5 hidden z-999 animate-fade-in animate-duration-300" tabindex="1"><svg
+					xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+					class="w-16 h-16 fill-bg-accent_second">
+					<path fill-rule="evenodd"
+						d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm.53 5.47a.75.75 0 00-1.06 0l-3 3a.75.75 0 101.06 1.06l1.72-1.72v5.69a.75.75 0 001.5 0v-5.69l1.72 1.72a.75.75 0 101.06-1.06l-3-3z"
+						clip-rule="evenodd"></path>
+				</svg> </button> </div>
+		<script
+			type="module">if (document.contains(document.getElementById("back-to-top-btn"))) { const t = document.getElementById("back-to-top-btn"); t && (window.addEventListener("scroll", () => { window.scrollY > 200 ? (t.classList.add("block"), t.classList.remove("hidden")) : (t.classList.add("hidden"), t.classList.remove("block")) }), t.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }) })) }</script>
+		<section
+			class="section-heading bg-bg-primary rounded-b-[30px] md:rounded-b-[60px] pt-42.5 pb-25 mb-20 relative flex justify-center items-end px-5"
+			data-astro-cid-u4qoyrkz>
+			<div class="hero-container flex flex-col justify-end h-full text-center items-center"
+				data-astro-cid-u4qoyrkz> <button onclick="window.location.href='/web-course-site/labs/web-basics'"
+					class="flex gap-2 font-bold font-titles text-[20px] items-center mb-5" data-astro-cid-u4qoyrkz><img
+						src="../../../..//../assets/img/chevron-right.svg" alt="" class="mb-1"
+						data-astro-cid-u4qoyrkz><span data-astro-cid-u4qoyrkz>Назад</span></button>
+				<h1 class="line-height-[1.1] max-w-[760px]" data-astro-cid-u4qoyrkz> Рубежный контроль </h1>
+			</div>
+		</section>
+		<article class="box-content max-w-[700px] xl:max-w-screen-xl m-auto px-3.5" data-astro-cid-doiaixo3>
+			<div class="xl:grid grid-cols-[1fr_700px_1fr] gap-4 items-start text-text-inverted mb-5"
+				data-astro-cid-doiaixo3>
+				<aside class="side mx-auto top-25 pt-6 xl:px-6 xl:pt-0 xl:sticky" data-astro-cid-doiaixo3>
+					<h2 class="xl:mt-2">Содержание</h2>
+					<ul class="list-none !p-0 leading-tight">
+						<li class="mb-2.5 ml-2"> <a class="font-thin"
+								href="rk.html#ссылка-для-клонирования-репозитория"> Ссылка для клонирования репозитория
+							</a> </li>
+						<li class="mb-2.5 ml-2"> <a class="font-thin" href="rk.html#главные-требования"> Главные
+								требования </a> </li>
+						<li class="mb-2.5 ml-2"> <a class="font-thin" href="rk.html#полезные-ресурсы"> Полезные ресурсы
+							</a> </li>
+						<li class="mb-2.5 ml-2"> <a class="font-thin" href="rk.html#примеры-внешнего-вида"> Примеры
+								внешнего вида </a> </li>
+						<li class="mb-2.5 ml-2"> <a class="font-thin" href="rk.html#задание"> Задание </a> </li>
+						<li class="mb-2.5 ml-2"> <a class="font-thin"
+								href="rk.html#критерии-оценки-за-невыполнение-критерия-баллы-снимаются-полностью-или-частично">
+								Критерии оценки (за невыполнение критерия баллы снимаются полностью или частично) </a>
+						</li>
+						<li class="mb-2.5 ml-4"> <a class="font-thin" href="rk.html#общие"> Общие </a> </li>
+						<li class="mb-2.5 ml-4"> <a class="font-thin" href="rk.html#код"> Код </a> </li>
+						<li class="mb-2.5 ml-4"> <a class="font-thin" href="rk.html#html"> HTML </a> </li>
+						<li class="mb-2.5 ml-4"> <a class="font-thin" href="rk.html#css"> CSS </a> </li>
+						<li class="mb-2.5 ml-4"> <a class="font-thin" href="rk.html#git-и-хостинг"> GIT и хостинг </a>
+						</li>
+					</ul>
+				</aside>
+				<div class="md" data-astro-cid-doiaixo3>
+					<h2 id="ссылка-для-клонирования-репозитория">Ссылка для клонирования репозитория</h2>
+					<p><a href="https://classroom.github.com/a/-M-x20Jc">Ссылка для принятия задания</a></p>
+					<h2 id="главные-требования">Главные требования</h2>
+					<ol>
+						<li>Работа выполнена самостоятельно.</li>
+						<li>Работа создана во время проведения занятия.</li>
+						<li>Не менее трех коммитов за авторством студента, равномерно распределенных по времени
+							выполнения задания.</li>
+						<li>Работа размещена на удаленном репозитории на Github, который создан через Github Classroom.
+						</li>
+						<li>Работа размещена на хостинге (сервер Мосполитеха).</li>
+					</ol>
+					<h2 id="полезные-ресурсы">Полезные ресурсы</h2>
+					<p>Цвета:</p>
+					<ul>
+						<li>Готовые цветовые палитры: <a href="https://colorhunt.co/">https://colorhunt.co/</a>, <a
+								href="https://coolors.co/">https://coolors.co/</a></li>
+						<li>Подобрать самостоятельно <a
+								href="https://color.adobe.com/create/color-wheel">https://color.adobe.com/create/color-wheel</a>
+						</li>
+					</ul>
+					<p>Шрифты: <a href="https://fonts.google.com/">https://fonts.google.com/</a> (Продвинутый способ: <a
+							href="https://google-webfonts-helper.herokuapp.com/fonts">https://google-webfonts-helper.herokuapp.com/fonts</a>)
+					</p>
+					<h2 id="примеры-внешнего-вида">Примеры внешнего вида</h2>
+					<ul>
+						<li><a
+								href="https://dessign.net/web-developer-portfolio-examples/">https://dessign.net/web-developer-portfolio-examples/</a>
+						</li>
+					</ul>
+					<h2 id="задание">Задание</h2>
+					<p>Документ index.html содержит:</p>
+					<ul>
+						<li>Шапка страницы:
+							<ul>
+								<li>Элемент ведущий на главную страницу (абсолютный путь до вашего домена): инициалы
+									шрифтом из группы Display или произвольный логотип.</li>
+								<li>Ссылка на ваш профиль на github.</li>
+								<li>Навигационное меню (nav) с якорными ссылками на разделы страницы.</li>
+							</ul>
+						</li>
+						<li>Основная часть:
+							<ul>
+								<li>Крупный блок на весь первый экран (называется Hero Image или Jumbotron). Ваше имя,
+									одно предложение о вас, кнопка с призывом связаться с вами, на фоне крупное
+									изображение (можно взять тут <a
+										href="https://unsplash.com/">https://unsplash.com/</a>).</li>
+								<li>Список технологий и языков программирования с логотипами: что уже изучаете, что
+									планируете в ближайшее время. Укажите опыт работы с технологией/языком
+									программирования (полгода, год и т.д.). Списки стоит разместить в нескольких
+									колонках.</li>
+								<li>Примеры ваших работ (скриншот, краткое описание, ссылка на сервер если есть) в виде
+									карточек или карточки выполненных лабораторных работ по дисциплине “Основы
+									веб-технологий”, номер, процент выполнения. В начале разделе есть ссылка со стрелкой
+									“смотреть еще”.</li>
+								<li>Отзывы на ваши работы: рейтинг звездочками или другими изображениями, дата, отзыв,
+									имя автора отзыва.</li>
+								<li>Контакты: почта, телефон, telegram и т.д. (можно использовать
+									<strong>ненастоящие</strong> данные). Визуально выделите предпочтительный вариант
+									для связи.
+								</li>
+							</ul>
+						</li>
+						<li>Подвал:
+							<ul>
+								<li>ФИО, группа, дата написания РК.</li>
+								<li>Форма с возможностью оставить имя и номер телефона для обратной связи и чекбокс для
+									срочной связи.</li>
+							</ul>
+						</li>
+					</ul>
+					<h2 id="критерии-оценки-за-невыполнение-критерия-баллы-снимаются-полностью-или-частично">Критерии
+						оценки (за невыполнение критерия баллы снимаются полностью или частично)</h2>
+					<h3 id="общие">Общие</h3>
+					<ul>
+						<li>Выполнены главные требования.</li>
+						<li>Содержание страницы соответствует заданию.</li>
+						<li>Страница выглядит цельно.</li>
+					</ul>
+					<h3 id="код">Код</h3>
+					<ul>
+						<li>В коде соблюдаются отступы.</li>
+						<li>В CSS не используются вложенность селекторов более двух.</li>
+					</ul>
+					<h3 id="html">HTML</h3>
+					<ul>
+						<li>Правильная структура документа.</li>
+						<li>Правильно использованы заголовки разных уровней.</li>
+						<li>Использованы семантические теги html5: header, main, footer, nav, section; по необходимости
+							article.</li>
+						<li>HTML валиден, нет нарушений вложенности тегов.</li>
+						<li>Выбраны правильные форматы изображений.</li>
+						<li>Задан правильный язык страницы.</li>
+						<li>Ссылки с телефонами, email сделаны корректно.</li>
+						<li>Нет лишних оберток div.</li>
+						<li>Если нет ссылки в шапке на ваш домен, то работа считается не загруженной на сервер.</li>
+					</ul>
+					<h3 id="css">CSS</h3>
+					<ul>
+						<li>Корректно подключен и использован шрифт с Google Fonts.</li>
+						<li>Использовано не менее двух разных значений для font-weight.</li>
+						<li>Использованы пользовательские свойства (custom properties в :root) для цветовой палитры.
+						</li>
+						<li>Цвета из палитры применены к тексту, фону, границам.</li>
+						<li>Header и footer выделены фоновым цветом.</li>
+						<li>Контент страницы имеет ограничение максимальной ширины (1200-1400px) и выровнен по середине
+							(одинаковые поля слева и права).</li>
+						<li>Содержимое элементов не переполняет их.</li>
+						<li>Стили выдерживаю увеличение или уменьшение количества контента.</li>
+						<li>Элементы не наезжают на элементы, следующие за ними.</li>
+						<li>Текст и изображения не слипаются друг с другом. Грамотно использованы внутренние и внешние
+							отступы.</li>
+						<li>Применено скругление границ.</li>
+						<li>Использован <code>box-sizing: border-box;</code>.</li>
+						<li>Карточки располагаются в ряд, имеют отступы друг от друга, использован flexbox.</li>
+						<li>Изменяется оформление элемента при наведении на него курсора.</li>
+						<li>К карточкам с проектами применена анимация, которая срабатывает при наведении.</li>
+						<li>Использованы переходы.</li>
+						<li>Изменены стандартные стили для элементов формы и чекбокса.</li>
+						<li>Изменение состояния курсора при наведении на кнопки (cursor: pointer;).</li>
+						<li>Классы названы логично, а не являются набором букв и цифр.</li>
+					</ul>
+					<h3 id="git-и-хостинг">GIT и хостинг</h3>
+					<ol>
+						<li>Клонировать репозиторий, который был создан Github Classroom (<code>git clone ...</code>).
+						</li>
+						<li>Установить необходимые пакеты для работы над проектом (<code>npm ci</code>).</li>
+						<li>При разработке периодически сохранять результаты в репозиторий git (команды
+							<code>git add</code>, <code>git commit -m "комментарий к версии"</code>).
+						</li>
+						<li>Перед завершением работы проверьте валидность вашего кода с помощью валидаторов для <a
+								href="https://validator.w3.org/">html</a> и <a
+								href="https://jigsaw.w3.org/css-validator/">css</a>.</li>
+						<li>Отформатируйте все документы html, css.</li>
+						<li>После проверки на валидаторе не забудьте отправить ваши изменения на github
+							(<code>git push</code>).</li>
+						<li>Для загрузки на хостинг соберите проект (<code>npm run build</code>).</li>
+						<li>Создайте домен и загрузите в нужную папку с помощью FileZilla файлы из папки build.</li>
+					</ol>
+				</div>
+			</div>
+			<div class="mb-20" data-astro-cid-doiaixo3> </div>
+		</article>
+	</main>
+	<footer class="bg-bg-primary z-99 rounded-t-[30px] sm:rounded-t-[60px] px-10 py-14" data-astro-cid-sz7xmlte>
+		<div class="top-content flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between max-w-screen-xl mx-auto mb-20 items-center sm:items-start"
+			data-astro-cid-sz7xmlte> <img class="mb-auto" width="200px" src="..//../assets/img/logo-full.svg"
+				alt="Logo Web-Studio" style="filter: invert()" data-astro-cid-sz7xmlte>
+			<div class="text-center sm:text-start" data-astro-cid-sz7xmlte>
+				<h3 class="mb-2" data-astro-cid-sz7xmlte>Контакты</h3>
+				<ul class="flex flex-col items-center sm:items-start sm:flex-row gap-10 sm:gap-19"
+					data-astro-cid-sz7xmlte>
+					<li class="flex flex-col gap-1 sm:max-w-[205px]" data-astro-cid-sz7xmlte>
+						<p class="line-height-none" data-astro-cid-sz7xmlte>Нерсисян Артем Арменович</p>
+						<p class="text-sm mb-1" data-astro-cid-sz7xmlte>Fullstack-разработчик</p>
+						<div class="flex justify-center sm:justify-start gap-1" data-astro-cid-sz7xmlte> <img
+								src="/../assets/img/tg-logo.svg" alt="telegram-logo" data-astro-cid-sz7xmlte> <a
+								class="text-sm" href="https://t.me/slavaver" data-astro-cid-sz7xmlte>
+								@timqwees </a> </div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="flex flex-col text-center sm:text-start sm:flex-row justify-between w-full align-bottom max-w-screen-xl mx-auto"
+			data-astro-cid-sz7xmlte>
+			<p class="text-center text-[16px] mt-auto" data-astro-cid-sz7xmlte>
+				&copy; 2025 TimQwees
+			</p>
+			<div data-astro-cid-sz7xmlte>
+				<p class="text-[16px]" data-astro-cid-sz7xmlte>
+					Разработка <a class="text-[16px]" href="https://t.me/qalqaa" data-astro-cid-sz7xmlte>@timqwees</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
