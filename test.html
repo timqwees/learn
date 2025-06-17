@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Design Smarter, Not Harder</title>
+	<style>
+		/* Общие стили */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+			color: #1a1a1a;
+			line-height: 1.5;
+			overflow-x: hidden;
+		}
+
+		/* Шапка - современный стиль */
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 24px 5%;
+			position: fixed;
+			width: 100%;
+			top: 0;
+			background-color: rgba(255, 255, 255, 0.96);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			z-index: 100;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 32px;
+		}
+
+		.nav-links a {
+			text-decoration: none;
+			color: #1a1a1a;
+			font-weight: 500;
+			font-size: 15px;
+			transition: color 0.2s ease;
+			position: relative;
+		}
+
+		.nav-links a:hover {
+			color: #000;
+		}
+
+		.nav-links a::after {
+			content: '';
+			position: absolute;
+			bottom: -4px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background-color: #000;
+			transition: width 0.3s ease;
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
+		.sign-in {
+			text-decoration: none;
+			color: #1a1a1a;
+			font-weight: 600;
+			font-size: 15px;
+			padding: 10px 20px;
+			border-radius: 8px;
+			transition: all 0.2s ease;
+		}
+
+		.sign-in:hover {
+			background-color: rgba(0, 0, 0, 0.05);
+		}
+
+		/* Основной контент */
+		.hero {
+			display: flex;
+			height: 100dvh;
+			padding-top: 80px;
+		}
+
+		.text-content {
+			flex: 1;
+			padding: 10% 5%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.image-content {
+			flex: 1;
+			background-color: #f8f8f8;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+
+		.image-placeholder {
+			width: 80%;
+			height: 80%;
+			background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #999;
+			font-size: 14px;
+			box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+		}
+
+		h1 {
+			font-size: 56px;
+			margin-bottom: 24px;
+			font-weight: 700;
+			line-height: 1.2;
+			letter-spacing: -0.02em;
+		}
+
+		.subtitle {
+			font-size: 20px;
+			margin-bottom: 32px;
+			font-weight: 500;
+			color: #4a4a4a;
+			font-style: italic;
+		}
+
+		.description {
+			max-width: 480px;
+			margin-bottom: 48px;
+			font-size: 17px;
+			color: #4a4a4a;
+		}
+
+		.buttons {
+			display: flex;
+			gap: 16px;
+			margin-bottom: 80px;
+		}
+
+		.btn {
+			padding: 14px 28px;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 15px;
+			transition: all 0.2s ease;
+		}
+
+		.btn-primary {
+			background-color: #000;
+			color: white;
+		}
+
+		.btn-primary:hover {
+			background-color: #333;
+			transform: translateY(-1px);
+		}
+
+		.btn-secondary {
+			border: 1px solid #d0d0d0;
+			color: #000;
+		}
+
+		.btn-secondary:hover {
+			border-color: #000;
+			background-color: rgba(0, 0, 0, 0.02);
+		}
+
+		.scroll-down {
+			position: absolute;
+			bottom: 40px;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 14px;
+			color: #888;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.scroll-down::after {
+			content: '';
+			display: block;
+			width: 1px;
+			height: 40px;
+			background-color: #d0d0d0;
+			margin-top: 12px;
+		}
+
+		/* Адаптивность */
+		@media (max-width: 1024px) {
+			.hero {
+				flex-direction: column;
+			}
+
+			.image-content {
+				padding: 40px;
+			}
+
+			.text-content {
+				padding: 80px 5% 40px;
+			}
+
+			h1 {
+				font-size: 42px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Шапка -->
+	<header>
+		<nav class="nav-links">
+			<a href="#">Overview</a>
+			<a href="#">Footures</a>
+			<a href="#">Pricing</a>
+			<a href="#">About</a>
+		</nav>
+		<a href="#" class="sign-in">Sign In</a>
+	</header>
+
+	<!-- Основной контент -->
+	<ul class="hero">
+		<li class="text-content">
+			<h1>DESIGN SMARTER, NOT HARDER</h1>
+			<p class="subtitle">Discipline will take you places motivation can't</p>
+			<p class="description">
+				Arnet minim mollit non deserunt uliamco est sit aliqua dolor do amet sint. Veli officia consequat duls
+				enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+			</p>
+			<div class="buttons">
+				<a href="#" class="btn btn-primary">Schedule a Demo</a>
+				<a href="#" class="btn btn-secondary">Contact Sales</a>
+			</div>
+		</li>
+
+		<li class="image-content">
+			<div class="image-placeholder">
+				2532 x 1170px (превью изображения)
+			</div>
+		</li>
+		<ul />
+
+		<div class="scroll-down">Scroll down</div>
+</body>
+
+</html>
